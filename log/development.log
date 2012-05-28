@@ -1,0 +1,1049 @@
+  [1m[36m (664.9ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (342.6ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (6.6ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateInputs (20120528105021)
+  [1m[35m (161.5ms)[0m  CREATE TABLE `inputs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `display_claimant_name` varchar(255), `jurisdictional_state` varchar(255), `claim_number` varchar(255), `talked_to` varchar(255), `call_datetime` datetime, `call_notes` text, `diagnosis` varchar(255), `document_date_mdy` date, `name` varchar(255), `suffix` varchar(255), `ref_doc_description` text, `add_que_description` text, `response` text, `opinion` text, `recommendation_name` varchar(255), `clinical_summary` text, `rationale` text, `cited_guidelines` text, `reviewer_display_name` varchar(255), `reviewer_specialty_name` varchar(255), `reviewer_license_description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (30.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120528105021')[0m
+  [1m[35m (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-28 11:37:56 +0000
+  Processing by InputsController#new as HTML
+Rendered inputs/new.html.haml within layouts/application (32.0ms)
+Completed 500 Internal Server Error in 70ms
+
+ActionView::Template::Error (undefined method `inputs_path' for #<#<Class:0xa8d3ed4>:0xa8c0e9c>):
+    1: %h2
+    2:   = "Add the Data to Create The .doc File"
+    3: 
+    4: = form_for @input do |f|
+    5:   = f.lable :display_claimant_name
+    6:   = f.text_box :display_claimant_name
+    7: 
+  app/views/inputs/new.html.haml:4:in `_app_views_inputs_new_html_haml___904841530_89878410'
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-28 11:39:24 +0000
+  Processing by InputsController#new as HTML
+Rendered inputs/new.html.haml within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 7ms
+
+ActionView::Template::Error (can't convert Symbol into Integer):
+    1: %h2
+    2:   = "Add the Data to Create The .doc File"
+    3: 
+    4: = form_for @input, inputs_create_path do |f|
+    5:   = f.lable :display_claimant_name
+    6:   = f.text_box :display_claimant_name
+    7: 
+  app/views/inputs/new.html.haml:4:in `_app_views_inputs_new_html_haml___904841530_84079950'
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (3.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-28 11:39:35 +0000
+  Processing by InputsController#new as HTML
+ERROR: compiling _app_views_inputs_new_html_haml___904841530_87474030 RAISED /home/drajgor/rails_projects/msdoc/app/views/inputs/new.html.haml:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+haml_temp =  form_for @input inputs_create_path do |f|
+                                               ^
+Function body:           def _app_views_inputs_new_html_haml___904841530_87474030(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "inputs/new";_old_output_buffer = @output_buffer;;begin;extend Haml::Helpers;_hamlout = @haml_buffer = Haml::Buffer.new(@haml_buffer, {:autoclose=>["meta", "img", "link", "br", "hr", "input", "area", "param", "col", "base"], :preserve=>["textarea", "pre", "code"], :attr_wrapper=>"'", :ugly=>false, :format=>:html5, :encoding=>"UTF-8", :escape_html=>true, :escape_attrs=>true});_erbout = _hamlout.buffer;__in_erb_template = true;;_hamlout.push_text("<h2>\n  #{_hamlout.adjust_tabs(1); 
+_hamlout.format_script_false_false_false_true_false_true_false(( "Add the Data to Create The .doc File"
+));}\n</h2>\n", -1, false);
+haml_temp =  form_for @input inputs_create_path do |f|
+_hamlout.push_text("#{_hamlout.format_script_false_false_false_true_false_true_false(( f.lable :display_claimant_name
+));}\n#{_hamlout.format_script_false_false_false_true_false_true_false(( f.text_box :display_claimant_name
+));}\n#{
+_hamlout.format_script_false_false_false_true_false_true_false(( f.submit "Create .doc File"
+));}\n", 0, false);end
+_hamlout.buffer << _hamlout.format_script_false_false_false_true_false_false_false(haml_temp);_hamlout.push_text("\n", 0, false);::Haml::Util.html_safe(_erbout);ensure;@haml_buffer = @haml_buffer.upper if @haml_buffer;end;
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/template.rb:309:in `module_eval'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/template.rb:309:in `compile'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/template.rb:217:in `compile!'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/template.rb:170:in `block in render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications.rb:55:in `instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/template.rb:169:in `render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:40:in `block (2 levels) in render_template'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/abstract_renderer.rb:33:in `block in instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications.rb:53:in `block in instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications.rb:53:in `instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/abstract_renderer.rb:33:in `instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:39:in `block in render_template'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:47:in `render_with_layout'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:38:in `render_template'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:12:in `block in render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/abstract_renderer.rb:22:in `wrap_formats'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:9:in `render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/renderer.rb:36:in `render_template'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/renderer.rb:17:in `render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/rendering.rb:120:in `_render_template'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/streaming.rb:250:in `_render_template'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/rendering.rb:114:in `render_to_body'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/renderers.rb:30:in `render_to_body'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/compatibility.rb:43:in `render_to_body'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/rendering.rb:99:in `render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/rendering.rb:16:in `render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/home/drajgor/.rvm/rubies/ruby-1.9.2-p318/lib/ruby/1.9.1/benchmark.rb:310:in `realtime'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activerecord-3.1.3/lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/base.rb:167:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:416:in `_run__507837996__process_action__192480817__callbacks'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:386:in `_run_process_action_callbacks'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications.rb:53:in `block in instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications.rb:53:in `instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/params_wrapper.rb:201:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activerecord-3.1.3/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/base.rb:121:in `process'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/rendering.rb:45:in `process'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal.rb:193:in `dispatch'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal.rb:236:in `block in action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/routing/route_set.rb:65:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/routing/route_set.rb:29:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:152:in `block in call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:96:in `block in recognize'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:95:in `recognize'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:141:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/routing/route_set.rb:532:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/etag.rb:23:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/conditionalget.rb:25:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/head.rb:14:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/flash.rb:247:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/session/abstract/id.rb:195:in `context'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/session/abstract/id.rb:190:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/cookies.rb:331:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activerecord-3.1.3/lib/active_record/query_cache.rb:64:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activerecord-3.1.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:477:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:392:in `_run_call_callbacks'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/reloader.rb:68:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/sendfile.rb:101:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/railties-3.1.3/lib/rails/rack/logger.rb:13:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/methodoverride.rb:24:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/runtime.rb:17:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/lock.rb:15:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/static.rb:53:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/railties-3.1.3/lib/rails/engine.rb:456:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/content_length.rb:14:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/railties-3.1.3/lib/rails/rack/log_tailer.rb:14:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/handler/webrick.rb:59:in `service'
+/home/drajgor/.rvm/rubies/ruby-1.9.2-p318/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/home/drajgor/.rvm/rubies/ruby-1.9.2-p318/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/home/drajgor/.rvm/rubies/ruby-1.9.2-p318/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered inputs/new.html.haml within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (/home/drajgor/rails_projects/msdoc/app/views/inputs/new.html.haml:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+haml_temp =  form_for @input inputs_create_path do |f|
+                                               ^):
+    1: %h2
+    2:   = "Add the Data to Create The .doc File"
+    3: 
+    4: = form_for @input inputs_create_path do |f|
+    5:   = f.lable :display_claimant_name
+    6:   = f.text_box :display_claimant_name
+    7: 
+  
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (3.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-28 11:40:29 +0000
+  Processing by InputsController#new as HTML
+ERROR: compiling _app_views_inputs_new_html_haml___904841530_84912150 RAISED /home/drajgor/rails_projects/msdoc/app/views/inputs/new.html.haml:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+haml_temp =  form_for :input inputs_create_path do |f|
+                                               ^
+Function body:           def _app_views_inputs_new_html_haml___904841530_84912150(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "inputs/new";_old_output_buffer = @output_buffer;;begin;extend Haml::Helpers;_hamlout = @haml_buffer = Haml::Buffer.new(@haml_buffer, {:autoclose=>["meta", "img", "link", "br", "hr", "input", "area", "param", "col", "base"], :preserve=>["textarea", "pre", "code"], :attr_wrapper=>"'", :ugly=>false, :format=>:html5, :encoding=>"UTF-8", :escape_html=>true, :escape_attrs=>true});_erbout = _hamlout.buffer;__in_erb_template = true;;_hamlout.push_text("<h2>\n  #{_hamlout.adjust_tabs(1); 
+_hamlout.format_script_false_false_false_true_false_true_false(( "Add the Data to Create The .doc File"
+));}\n</h2>\n", -1, false);
+haml_temp =  form_for :input inputs_create_path do |f|
+_hamlout.push_text("#{_hamlout.format_script_false_false_false_true_false_true_false(( f.lable :display_claimant_name
+));}\n#{_hamlout.format_script_false_false_false_true_false_true_false(( f.text_box :display_claimant_name
+));}\n#{
+_hamlout.format_script_false_false_false_true_false_true_false(( f.submit "Create .doc File"
+));}\n", 0, false);end
+_hamlout.buffer << _hamlout.format_script_false_false_false_true_false_false_false(haml_temp);_hamlout.push_text("\n", 0, false);::Haml::Util.html_safe(_erbout);ensure;@haml_buffer = @haml_buffer.upper if @haml_buffer;end;
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/template.rb:309:in `module_eval'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/template.rb:309:in `compile'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/template.rb:217:in `compile!'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/template.rb:170:in `block in render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications.rb:55:in `instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/template.rb:169:in `render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:40:in `block (2 levels) in render_template'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/abstract_renderer.rb:33:in `block in instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications.rb:53:in `block in instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications.rb:53:in `instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/abstract_renderer.rb:33:in `instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:39:in `block in render_template'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:47:in `render_with_layout'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:38:in `render_template'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:12:in `block in render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/abstract_renderer.rb:22:in `wrap_formats'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:9:in `render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/renderer.rb:36:in `render_template'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/renderer.rb:17:in `render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/rendering.rb:120:in `_render_template'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/streaming.rb:250:in `_render_template'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/rendering.rb:114:in `render_to_body'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/renderers.rb:30:in `render_to_body'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/compatibility.rb:43:in `render_to_body'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/rendering.rb:99:in `render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/rendering.rb:16:in `render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/home/drajgor/.rvm/rubies/ruby-1.9.2-p318/lib/ruby/1.9.1/benchmark.rb:310:in `realtime'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activerecord-3.1.3/lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/base.rb:167:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:416:in `_run__507837996__process_action__192480817__callbacks'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:386:in `_run_process_action_callbacks'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications.rb:53:in `block in instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications.rb:53:in `instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/params_wrapper.rb:201:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activerecord-3.1.3/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/base.rb:121:in `process'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/rendering.rb:45:in `process'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal.rb:193:in `dispatch'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal.rb:236:in `block in action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/routing/route_set.rb:65:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/routing/route_set.rb:29:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:152:in `block in call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:96:in `block in recognize'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:95:in `recognize'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:141:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/routing/route_set.rb:532:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/etag.rb:23:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/conditionalget.rb:25:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/head.rb:14:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/flash.rb:247:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/session/abstract/id.rb:195:in `context'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/session/abstract/id.rb:190:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/cookies.rb:331:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activerecord-3.1.3/lib/active_record/query_cache.rb:64:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activerecord-3.1.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:477:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:392:in `_run_call_callbacks'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/reloader.rb:68:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/sendfile.rb:101:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/railties-3.1.3/lib/rails/rack/logger.rb:13:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/methodoverride.rb:24:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/runtime.rb:17:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/lock.rb:15:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/static.rb:53:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/railties-3.1.3/lib/rails/engine.rb:456:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/content_length.rb:14:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/railties-3.1.3/lib/rails/rack/log_tailer.rb:14:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/handler/webrick.rb:59:in `service'
+/home/drajgor/.rvm/rubies/ruby-1.9.2-p318/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/home/drajgor/.rvm/rubies/ruby-1.9.2-p318/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/home/drajgor/.rvm/rubies/ruby-1.9.2-p318/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered inputs/new.html.haml within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (/home/drajgor/rails_projects/msdoc/app/views/inputs/new.html.haml:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+haml_temp =  form_for :input inputs_create_path do |f|
+                                               ^):
+    1: %h2
+    2:   = "Add the Data to Create The .doc File"
+    3: 
+    4: = form_for :input inputs_create_path do |f|
+    5:   = f.lable :display_claimant_name
+    6:   = f.text_box :display_claimant_name
+    7: 
+  
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (3.4ms)
+
+
+Started GET "/input/new" for 127.0.0.1 at 2012-05-28 11:40:46 +0000
+
+ActionController::RoutingError (No route matches [GET] "/input/new"):
+  
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/inputs/new" for 127.0.0.1 at 2012-05-28 11:40:51 +0000
+  Processing by InputsController#new as HTML
+ERROR: compiling _app_views_inputs_new_html_haml___904841530_84912150 RAISED /home/drajgor/rails_projects/msdoc/app/views/inputs/new.html.haml:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+haml_temp =  form_for :input inputs_create_path do |f|
+                                               ^
+Function body:           def _app_views_inputs_new_html_haml___904841530_84912150(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "inputs/new";_old_output_buffer = @output_buffer;;begin;extend Haml::Helpers;_hamlout = @haml_buffer = Haml::Buffer.new(@haml_buffer, {:autoclose=>["meta", "img", "link", "br", "hr", "input", "area", "param", "col", "base"], :preserve=>["textarea", "pre", "code"], :attr_wrapper=>"'", :ugly=>false, :format=>:html5, :encoding=>"UTF-8", :escape_html=>true, :escape_attrs=>true});_erbout = _hamlout.buffer;__in_erb_template = true;;_hamlout.push_text("<h2>\n  #{_hamlout.adjust_tabs(1); 
+_hamlout.format_script_false_false_false_true_false_true_false(( "Add the Data to Create The .doc File"
+));}\n</h2>\n", -1, false);
+haml_temp =  form_for :input inputs_create_path do |f|
+_hamlout.push_text("#{_hamlout.format_script_false_false_false_true_false_true_false(( f.lable :display_claimant_name
+));}\n#{_hamlout.format_script_false_false_false_true_false_true_false(( f.text_box :display_claimant_name
+));}\n#{
+_hamlout.format_script_false_false_false_true_false_true_false(( f.submit "Create .doc File"
+));}\n", 0, false);end
+_hamlout.buffer << _hamlout.format_script_false_false_false_true_false_false_false(haml_temp);_hamlout.push_text("\n", 0, false);::Haml::Util.html_safe(_erbout);ensure;@haml_buffer = @haml_buffer.upper if @haml_buffer;end;
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/template.rb:309:in `module_eval'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/template.rb:309:in `compile'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/template.rb:217:in `compile!'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/template.rb:170:in `block in render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications.rb:55:in `instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/template.rb:169:in `render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:40:in `block (2 levels) in render_template'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/abstract_renderer.rb:33:in `block in instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications.rb:53:in `block in instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications.rb:53:in `instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/abstract_renderer.rb:33:in `instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:39:in `block in render_template'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:47:in `render_with_layout'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:38:in `render_template'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:12:in `block in render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/abstract_renderer.rb:22:in `wrap_formats'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:9:in `render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/renderer.rb:36:in `render_template'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_view/renderer/renderer.rb:17:in `render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/rendering.rb:120:in `_render_template'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/streaming.rb:250:in `_render_template'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/rendering.rb:114:in `render_to_body'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/renderers.rb:30:in `render_to_body'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/compatibility.rb:43:in `render_to_body'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/rendering.rb:99:in `render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/rendering.rb:16:in `render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/home/drajgor/.rvm/rubies/ruby-1.9.2-p318/lib/ruby/1.9.1/benchmark.rb:310:in `realtime'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activerecord-3.1.3/lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/base.rb:167:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:416:in `_run__507837996__process_action__192480817__callbacks'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:386:in `_run_process_action_callbacks'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications.rb:53:in `block in instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/notifications.rb:53:in `instrument'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/params_wrapper.rb:201:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activerecord-3.1.3/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/base.rb:121:in `process'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/abstract_controller/rendering.rb:45:in `process'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal.rb:193:in `dispatch'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_controller/metal.rb:236:in `block in action'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/routing/route_set.rb:65:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/routing/route_set.rb:29:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:152:in `block in call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:96:in `block in recognize'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:95:in `recognize'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:141:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/routing/route_set.rb:532:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/etag.rb:23:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/conditionalget.rb:25:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/head.rb:14:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/flash.rb:247:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/session/abstract/id.rb:195:in `context'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/session/abstract/id.rb:190:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/cookies.rb:331:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activerecord-3.1.3/lib/active_record/query_cache.rb:64:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activerecord-3.1.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:477:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:392:in `_run_call_callbacks'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/reloader.rb:68:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/sendfile.rb:101:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/railties-3.1.3/lib/rails/rack/logger.rb:13:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/methodoverride.rb:24:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/runtime.rb:17:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/activesupport-3.1.3/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/lock.rb:15:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/static.rb:53:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/railties-3.1.3/lib/rails/engine.rb:456:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/content_length.rb:14:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/railties-3.1.3/lib/rails/rack/log_tailer.rb:14:in `call'
+/home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/rack-1.3.6/lib/rack/handler/webrick.rb:59:in `service'
+/home/drajgor/.rvm/rubies/ruby-1.9.2-p318/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/home/drajgor/.rvm/rubies/ruby-1.9.2-p318/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/home/drajgor/.rvm/rubies/ruby-1.9.2-p318/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered inputs/new.html.haml within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (/home/drajgor/rails_projects/msdoc/app/views/inputs/new.html.haml:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+haml_temp =  form_for :input inputs_create_path do |f|
+                                               ^):
+    1: %h2
+    2:   = "Add the Data to Create The .doc File"
+    3: 
+    4: = form_for :input inputs_create_path do |f|
+    5:   = f.lable :display_claimant_name
+    6:   = f.text_box :display_claimant_name
+    7: 
+  
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (3.6ms)
+
+
+Started GET "/inputs/new" for 127.0.0.1 at 2012-05-28 11:41:23 +0000
+  Processing by InputsController#new as HTML
+Rendered inputs/new.html.haml within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (can't convert Symbol into Integer):
+    1: %h2
+    2:   = "Add the Data to Create The .doc File"
+    3: 
+    4: = form_for @input, inputs_create_path do |f|
+    5:   = f.lable :display_claimant_name
+    6:   = f.text_box :display_claimant_name
+    7: 
+  app/views/inputs/new.html.haml:4:in `_app_views_inputs_new_html_haml___904841530_87383430'
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (3.5ms)
+
+
+Started GET "/inputs/new" for 127.0.0.1 at 2012-05-28 11:41:36 +0000
+  Processing by InputsController#new as HTML
+Rendered inputs/new.html.haml within layouts/application (79.6ms)
+Completed 500 Internal Server Error in 83ms
+
+ActionView::Template::Error (undefined method `lable' for #<ActionView::Helpers::FormBuilder:0xa03a958>):
+    2:   = "Add the Data to Create The .doc File"
+    3: 
+    4: = form_for @input, :url => inputs_create_path do |f|
+    5:   = f.lable :display_claimant_name
+    6:   = f.text_box :display_claimant_name
+    7: 
+    8:   = f.submit "Create .doc File"
+  app/views/inputs/new.html.haml:5:in `block in _app_views_inputs_new_html_haml___904841530_84862580'
+  app/views/inputs/new.html.haml:4:in `_app_views_inputs_new_html_haml___904841530_84862580'
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (4.0ms)
+
+
+Started GET "/inputs/new" for 127.0.0.1 at 2012-05-28 11:42:46 +0000
+  Processing by InputsController#new as HTML
+Rendered inputs/new.html.haml within layouts/application (82.8ms)
+Completed 500 Internal Server Error in 90ms
+
+ActionView::Template::Error (undefined method `lable' for #<ActionView::Helpers::FormBuilder:0xa05b9f0>):
+    2:   = "Add the Data to Create The .doc File"
+    3: 
+    4: = form_for @input, :url => inputs_create_path(@input) do |f|
+    5:   = f.lable :display_claimant_name
+    6:   = f.text_field :display_claimant_name
+    7: 
+    8:   = f.submit "Create .doc File"
+  app/views/inputs/new.html.haml:5:in `block in _app_views_inputs_new_html_haml___904841530_85282960'
+  app/views/inputs/new.html.haml:4:in `_app_views_inputs_new_html_haml___904841530_85282960'
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (4.1ms)
+
+
+Started GET "/inputs/new" for 127.0.0.1 at 2012-05-28 12:05:59 +0000
+  Processing by InputsController#new as HTML
+Rendered inputs/new.html.haml within layouts/application (43.8ms)
+Compiled application.css  (2ms)  (pid 7105)
+Compiled inputs.css  (35ms)  (pid 7105)
+Compiled application.js  (19ms)  (pid 7105)
+Compiled jquery.js  (9ms)  (pid 7105)
+Compiled jquery_ujs.js  (4ms)  (pid 7105)
+Compiled inputs.js  (131ms)  (pid 7105)
+Completed 200 OK in 405ms (Views: 403.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-28 12:06:00 +0000
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/inputs.css?body=1" for 127.0.0.1 at 2012-05-28 12:06:00 +0000
+Served asset /inputs.css - 200 OK (29ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-28 12:06:00 +0000
+Served asset /jquery.js - 200 OK (5ms)
+
+
+Started GET "/assets/inputs.js?body=1" for 127.0.0.1 at 2012-05-28 12:06:00 +0000
+Served asset /inputs.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-28 12:06:00 +0000
+Served asset /jquery_ujs.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-28 12:06:00 +0000
+Served asset /application.js - 200 OK (0ms)
+
+
+Started POST "/inputs/create" for 127.0.0.1 at 2012-05-28 12:06:32 +0000
+  Processing by InputsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZWsPIp8gjqRXLVqCgcZs1iaMrD1UZ95FMmnUwZcKdz4=", "input"=>{"display_claimant_name"=>"asd"}, "commit"=>"Create .doc File"}
+Completed 500 Internal Server Error in 0ms
+
+SystemExit (exit):
+  app/controllers/inputs_controller.rb:7:in `exit'
+  app/controllers/inputs_controller.rb:7:in `create'
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.9ms)
+
+
+Started GET "/inputs/new" for 127.0.0.1 at 2012-05-28 12:06:45 +0000
+  Processing by InputsController#new as HTML
+Rendered inputs/new.html.haml within layouts/application (42.2ms)
+Completed 200 OK in 48ms (Views: 47.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-28 12:06:45 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/inputs.css?body=1" for 127.0.0.1 at 2012-05-28 12:06:45 +0000
+Served asset /inputs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-28 12:06:45 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-28 12:06:45 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-28 12:06:45 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/inputs.js?body=1" for 127.0.0.1 at 2012-05-28 12:06:45 +0000
+Served asset /inputs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-28 12:06:45 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-28 12:06:45 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/inputs.css?body=1" for 127.0.0.1 at 2012-05-28 12:06:45 +0000
+Served asset /inputs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-28 12:06:45 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/inputs.js?body=1" for 127.0.0.1 at 2012-05-28 12:06:45 +0000
+Served asset /inputs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-28 12:06:45 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/inputs/new" for 127.0.0.1 at 2012-05-28 12:15:49 +0000
+  Processing by InputsController#new as HTML
+Rendered inputs/new.html.haml within layouts/application (88.5ms)
+Completed 500 Internal Server Error in 92ms
+
+ActionView::Template::Error (undefined method `datetime' for #<ActionView::Helpers::FormBuilder:0x9c051a8>):
+    15:   = f.text_field :talked_to
+    16: 
+    17:   = f.label :call_datetime
+    18:   = f.datetime :call_datetime
+    19: 
+    20:   = f.label :call_notes
+    21:   = f.text_area :call_notes
+  app/views/inputs/new.html.haml:18:in `block in _app_views_inputs_new_html_haml___904841530_84765440'
+  app/views/inputs/new.html.haml:4:in `_app_views_inputs_new_html_haml___904841530_84765440'
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (3.9ms)
+
+
+Started GET "/inputs/new" for 127.0.0.1 at 2012-05-28 12:16:34 +0000
+  Processing by InputsController#new as HTML
+Rendered inputs/new.html.haml within layouts/application (85.2ms)
+Completed 500 Internal Server Error in 89ms
+
+ActionView::Template::Error (undefined method `field' for #<ActionView::Helpers::FormBuilder:0xa7dd890>):
+    15:   = f.text_field :talked_to
+    16: 
+    17:   = f.label :call_datetime
+    18:   = f.field :call_datetime
+    19: 
+    20:   = f.label :call_notes
+    21:   = f.text_area :call_notes
+  app/views/inputs/new.html.haml:18:in `block in _app_views_inputs_new_html_haml___904841530_84762190'
+  app/views/inputs/new.html.haml:4:in `_app_views_inputs_new_html_haml___904841530_84762190'
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (23.7ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (26.4ms)
+
+
+Started GET "/inputs/new" for 127.0.0.1 at 2012-05-28 12:16:51 +0000
+  Processing by InputsController#new as HTML
+Rendered inputs/new.html.haml within layouts/application (30.2ms)
+Completed 200 OK in 36ms (Views: 34.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-28 12:16:51 +0000
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/inputs.css?body=1" for 127.0.0.1 at 2012-05-28 12:16:51 +0000
+Served asset /inputs.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-28 12:16:51 +0000
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/inputs.js?body=1" for 127.0.0.1 at 2012-05-28 12:16:51 +0000
+Served asset /inputs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-28 12:16:51 +0000
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-28 12:16:51 +0000
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/inputs/new" for 127.0.0.1 at 2012-05-28 12:20:13 +0000
+  Processing by InputsController#new as HTML
+Rendered inputs/new.html.haml within layouts/application (33.4ms)
+Completed 200 OK in 39ms (Views: 37.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-28 12:20:14 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/inputs.css?body=1" for 127.0.0.1 at 2012-05-28 12:20:14 +0000
+Served asset /inputs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-28 12:20:14 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-28 12:20:14 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/inputs.js?body=1" for 127.0.0.1 at 2012-05-28 12:20:14 +0000
+Served asset /inputs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-28 12:20:14 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-28 12:20:14 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/inputs.css?body=1" for 127.0.0.1 at 2012-05-28 12:20:14 +0000
+Served asset /inputs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/inputs.js?body=1" for 127.0.0.1 at 2012-05-28 12:20:14 +0000
+Served asset /inputs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-28 12:20:14 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-28 12:20:14 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-28 12:20:14 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/inputs/new" for 127.0.0.1 at 2012-05-28 12:22:45 +0000
+  Processing by InputsController#new as HTML
+Rendered inputs/new.html.haml within layouts/application (34.0ms)
+Completed 200 OK in 40ms (Views: 38.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-28 12:22:45 +0000
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-28 12:22:45 +0000
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-28 12:22:45 +0000
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/inputs.js?body=1" for 127.0.0.1 at 2012-05-28 12:22:45 +0000
+Served asset /inputs.js - 200 OK (0ms)
+
+
+Started GET "/assets/inputs.css?body=1" for 127.0.0.1 at 2012-05-28 12:22:45 +0000
+Served asset /inputs.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-28 12:22:45 +0000
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/inputs/new" for 127.0.0.1 at 2012-05-28 12:27:58 +0000
+  Processing by InputsController#new as HTML
+Rendered inputs/new.html.haml within layouts/application (33.5ms)
+Completed 200 OK in 39ms (Views: 38.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-28 12:27:58 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/inputs.css?body=1" for 127.0.0.1 at 2012-05-28 12:27:58 +0000
+Served asset /inputs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-28 12:27:58 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/inputs.js?body=1" for 127.0.0.1 at 2012-05-28 12:27:58 +0000
+Served asset /inputs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-28 12:27:58 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-28 12:27:58 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-28 12:27:58 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-28 12:27:58 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/inputs.css?body=1" for 127.0.0.1 at 2012-05-28 12:27:58 +0000
+Served asset /inputs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-28 12:27:58 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/inputs.js?body=1" for 127.0.0.1 at 2012-05-28 12:27:58 +0000
+Served asset /inputs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-28 12:27:58 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/inputs/create" for 127.0.0.1 at 2012-05-28 12:36:30 +0000
+  Processing by InputsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZWsPIp8gjqRXLVqCgcZs1iaMrD1UZ95FMmnUwZcKdz4=", "input"=>{"display_claimant_name"=>"Rene Ortegon", "jurisdictional_state"=>"CA", "claim_number"=>"SCA900070054", "talked_to"=>"Ardavan Aslie", "call_datetime"=>"05/05/12 00:00:00", "call_notes"=>"\"A peer to peer teleconference was attempted with Dr. Aslie on 05/07/2012 at 4:20 pm ET.Spoke with Missy - Dr Aslie is available Wednesday's and Friday's to speak\"\r\n", "diagnosis"=>"N/A", "document_date_mdy"=>"05/17/12", "name"=>"CALIFORNIA DEPART. OF INDUSTRIAL RE", "suffix"=>"", "ref_doc_description"=>"Pharmacy Fee Schedule", "add_que_description"=>"\"1. Please call Physician to discuss each medication: usage, dosage, generic versus brand name, weaning if appropriate, whether his change in medication is necessary or not, with cost savings analysis for each medication with a total analysis. \"\r\n", "response"=>"", "opinion"=>"After numerous attempts to speak with the prescribing physic", "recommendation_name"=>"Mr. Ran Durand", "clinical_summary"=>"\"The claimant is a 57-year-old male who was reportedly injured at his job on August 2, 2010 where he was employed as a saw filer/sharpener for approximately thirty years. According to the claimant the injury was of a \"repetitive motion\" nature affecting the bilateral upper extremities and his back. On December 5, 2011, the claimant received an anterior/posterior lumbar fusion. According to the operative report there were no complications with procedure. On June 13, 2011, Carl H. Shin, MD, examined the claimant. The claimant was re-evaluated for carpal tunnel syndrome bilaterally. At the time, the claimant's chief complaint was pain and numbness in the first three digits of both hands, sleep disturbance and pain ranging from six to eight on a visual analog scale (VAS) of zero to ten, with zero reflecting no pain and ten reflecting the most intense pain. The claimant was not working at the time of the examination and a complete review of systems and physical examination were conducted. The treatment plan included a repeat electromyogram study to determine nerve damage, a referral to a hand specialist, continuation of gabapentin with increasing dosage to 600 mg twice daily and reevaluation in four weeks. In a consultation report dated September 7, 2011, the claimant was evaluated for low back and bilateral leg pain, as well as, neck pain. According to the claimant he was not working and the claimant stated he was not currently taking any medication but objective findings noted some significant weakness in the right foot, both plantarflexors and dorsiflexors. The claimant was able to bend to thirty degrees and extend without any extension job. The treatment plan included: obtaining an MRI of lumbar spine, pharmacotherapy to include pain medication, anti-inflammatory medication and muscle relaxants as well as a topical pain cream for numbness and neuropathic pain. In a progress report dated October 5, 2011, the claimant was diagnosed with a lumbar herniated disc. The lower extremity exam was unchanged from last visit. The claimant complained of pain with any activity and he stated that only rest improved the pain. Findings from the MRI showed anterior listhesis of L4 over L5, spinal stenosis of L2-L3 and foraminal stenosis in level of L2 and L3 bilaterally. The treatment plan includes an epidural injection of the lumbar spine, a nerve conduction study of the lower extremities and continuation of medications. The claimant was also counseled regarding spine care and activities. Ardavan Aslie, MD conducted a follow up exam on November 2, 2011. The patient was seen for a follow-up examination. The claimant stated that the nerve conduction study \"bothered\" him and that he was pain. The claimant reported that pain started in the back and radiated down his legs, bilaterally. The lower extremity examination remained unchanged from the last visit. A Waddell sign was absent. The claimant's pathology showed severe spinal stenosis at the levels of L2-L3 and L3-L4. The treatment plan was to proceed with an epidural injection, however, the claimant did not want to proceed as he was in too much pain and did not believe that the injections helped. L2-L3 and L3-L4 anterior/posterior decompression and fusion surgery was offered and explained and the claimant stated he wanted to proceed with surgery. Evaluation and counseling of medication use was also conducted at this time. On December 5, 2011, the claimant received an anterior L2-3 fusion and a posterior L2-3 fusion on the following day. On March 14, 2012, Ardavan Aslie, MD examined the claimant where the chief complain was residual pain in the lumbar spine. The claimant stated that he believed surgery helped him. The lower extremity examination findings were unchanged. Sensation was decreased at the level of L5 bilaterally and a Waddell sign was absent. The claimant had not healed from surgery at the time and was instructed to be careful with his back. Physician noted significant instability at L4-L5 area that was discovered during surgery and the claimant was counseled regarding activities and medication use. Ardavan Aslie, MD examined the Claimant on April 11, 2012 and the claimant reported that he increased the distance that he could walk but was still experiencing low back and bilateral leg pain. Objective findings concluded that the incisions were healing with no signs of infection, A Waddell sign was absent and plantarflexors and dorsiflexors were slightly stronger since pre-op. The physician reported that the claimant had actually a two-level severe spinal stenosis and that he should continue with current management. An evaluation and counseling of medications and currently activities were conducted. The claimant received physical therapy on March 23, 2011, April 14, 2011, April 21, 2011, April 25, 2011, April 28, 2011, May 2, 2011, May 5, 2011, and May 9, 2011. In a progress report dated May 12, 2011 by Sharon Gaebler, OTR, CHT, the claimant reported that he was limited to 'five minutes of activity before hands give out.\" The treatment plan at that time was to discharge to an independent home exercise program. In a review of prescriptions, the claimant received the following prescriptions between August 5, 2010 and March 3, 2012: Celebrex, 200 mg, Gabapentin, 300 mg; Tramadol HCL 50 mg; Dendracin Neurodendraxcin, 0.0375-10-20%; Hydrocodone-Acetaminophen 10-325 mg, ciprofloxacin and Amox TR potassium Clavulana. \"\r\n", "rationale"=>"\"Cost Savings Analysis (Based on a remaining life expectancy of 25.0 years per the National Vital Statistics Reports, Vol. 59, No. 9, September 28, 2011) Theramine 450mg #90 invoice priced at $302.73 for a 30 day supply translates to $302.73 monthly, $3,684.75 annually and $92,143.44 for the claimant's remaining life expectancy of 25 years. Gabapentin 300mg #60 invoice priced at $14.60 for a 30 day supply translates to $14.60 monthly, $177.76 annually and $4443.88 for the claimant's remaining life expectancy of 25 years. Tramadol 50mg #60; $12.65 for a 30 day supply translates to $12.65 monthly, $154.01 annually and $3850.34 for the claimant's remaining life expectancy of 25 years. Dendracin Neurodendraxcin (Capsaicin/Menthol/Methyl Salicylate) cream 4oz/120ml monthly $328.47 or a 30 day supply translates to $328.47 monthly, $3,999.12 annually and $99,978.05 for the claimant's remaining life expectancy of 25 years. Total Cost Savings for combined recommendation: Monthly = $658.45 ($302.73 + $14.60 + 12.65 + $328.47 = $658.45) Annually = $8016.63 ($3865.74 + $177.76 + $154.01 +$3999.12 = $8096.63) Remaining Life Expectancy = $200,415.72 ($92,143.44 + $4443.88 + $3850.34 + $99,978.06 = $200,415.72)\"\r\n", "cited_guidelines"=>"\"1) Chronic Pain Medical Treatment Guidelines MTUS (effective July 18, 2008), 8 C.C.R. 9792.20-9792.26 2) Medical Board of California, Guidelines for Prescribing Controlled Substances for Pain, http://www.medbd.ca.gov/pain_guidelines.html 3) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Pain (chronic) Chapter 4) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Low Back-Lumbar & Thoracic (Acute & Chronic) Chapter 5) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Forearm, Wrist, & Hand (Acute & Chronic) Chapter 6) The American Geriatrics Society 2012 Beers Criteria Update Expert Panel. AGS updated Beers Criteria for potentially inappropriate medication use in older adults. J Am Geriatr Soc 2012; DOI: 10.1111/j.1532-5415.2012.03923.x. 7) U.S. Department of Health and Human Services, National Center for Health Statistics, National Vital Statistics Reports, Vol. 59, No. 9, September 28, 2011 Life Expectancy Tables Evidence Based Medical Guidelines Referenced: 1) Littrell RA, Sage T, Miller W. Meprobamate dependence secondary to carisoprodol use. Am J Drug Alcohol Abuse. 1993;19(1):133-134 2) Federal Register 77,330/ Vol. 76, No. 238/ Dec. 12, 2011 3) Institute for Clinical Systems Improvement (ICSI). Assessment and management of chronic pain. Bloomington (MN): Institute for Clinical Systems Improvement (ICSI); 2009 Nov. 91 p. 4) Agency Medical Directors' Group. Interagency Guideline on Opioid Dosing for Chronic Non-cancer Pain. Washington State Agency Medical Directors' Group: 2010. Available online at http://www.agencymeddirectors.wa.gov/Files/OpioidGdline.pdf 5) Chou R, Fanciullo GJ, Fine PG, et al; American Pain Society-American Academy of Pain Medicine Opioids Guidelines Panel. Clinical guidelines for the use of chronic opioid therapy in chronic noncancer pain.J Pain. 2009 Feb;10(2):113-130. 6) Dunn KM, Saunders KW, Rutter CM, et al. Opioid prescriptions for chronic pain and overdose: a cohort study. Ann Intern Med. 2010 Jan 19;152(2):85-92. 7) Heltsley R, Zichterman A, Black DL, et al. Urine drug testing of chronic pain patients. II. Prevalence patterns of prescription opiates and metabolites. J Anal Toxicol. 2010 Jan-Feb;34(1):32-38. Manchikanti L, Manchukonda R, Damron KS, Brandon D, McManus CD, Cash K. Does adherence monitoring reduce controlled substance abuse in chronic pain patients? Pain Physician. 2006 Jan;9(1):57-60. 8) Arnold RM, Han PK, Seltzer D. Opioid contracts in chronic nonmalignant pain management: Objectives and uncertainties. Am J Med. 2006;119:292-296\"\r\n", "reviewer_display_name"=>"Anthony Riso, M.D", "reviewer_specialty_name"=>"Anesthesiology", "reviewer_license_description"=>"Medical Doctor"}, "commit"=>"Create .doc File"}
+Completed 500 Internal Server Error in 0ms
+
+SystemExit (exit):
+  app/controllers/inputs_controller.rb:7:in `exit'
+  app/controllers/inputs_controller.rb:7:in `create'
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.6ms)
+
+
+Started POST "/inputs/create" for 127.0.0.1 at 2012-05-28 13:24:55 +0000
+
+LoadError (no such file to load -- rest-client):
+  app/controllers/inputs_controller.rb:3:in `<class:InputsController>'
+  app/controllers/inputs_controller.rb:1:in `<top (required)>'
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.2ms)
+
+
+Started POST "/inputs/create" for 127.0.0.1 at 2012-05-28 13:25:55 +0000
+
+LoadError (no such file to load -- rest-client):
+  app/controllers/inputs_controller.rb:3:in `<class:InputsController>'
+  app/controllers/inputs_controller.rb:1:in `<top (required)>'
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.2ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.9ms)
+
+
+Started POST "/inputs/create" for 127.0.0.1 at 2012-05-28 13:26:28 +0000
+  Processing by InputsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZWsPIp8gjqRXLVqCgcZs1iaMrD1UZ95FMmnUwZcKdz4=", "input"=>{"display_claimant_name"=>"Rene Ortegon", "jurisdictional_state"=>"CA", "claim_number"=>"SCA900070054", "talked_to"=>"Ardavan Aslie", "call_datetime"=>"05/05/12 00:00:00", "call_notes"=>"\"A peer to peer teleconference was attempted with Dr. Aslie on 05/07/2012 at 4:20 pm ET.Spoke with Missy - Dr Aslie is available Wednesday's and Friday's to speak\"\r\n", "diagnosis"=>"N/A", "document_date_mdy"=>"05/17/12", "name"=>"CALIFORNIA DEPART. OF INDUSTRIAL RE", "suffix"=>"", "ref_doc_description"=>"Pharmacy Fee Schedule", "add_que_description"=>"\"1. Please call Physician to discuss each medication: usage, dosage, generic versus brand name, weaning if appropriate, whether his change in medication is necessary or not, with cost savings analysis for each medication with a total analysis. \"\r\n", "response"=>"", "opinion"=>"After numerous attempts to speak with the prescribing physic", "recommendation_name"=>"Mr. Ran Durand", "clinical_summary"=>"\"The claimant is a 57-year-old male who was reportedly injured at his job on August 2, 2010 where he was employed as a saw filer/sharpener for approximately thirty years. According to the claimant the injury was of a \"repetitive motion\" nature affecting the bilateral upper extremities and his back. On December 5, 2011, the claimant received an anterior/posterior lumbar fusion. According to the operative report there were no complications with procedure. On June 13, 2011, Carl H. Shin, MD, examined the claimant. The claimant was re-evaluated for carpal tunnel syndrome bilaterally. At the time, the claimant's chief complaint was pain and numbness in the first three digits of both hands, sleep disturbance and pain ranging from six to eight on a visual analog scale (VAS) of zero to ten, with zero reflecting no pain and ten reflecting the most intense pain. The claimant was not working at the time of the examination and a complete review of systems and physical examination were conducted. The treatment plan included a repeat electromyogram study to determine nerve damage, a referral to a hand specialist, continuation of gabapentin with increasing dosage to 600 mg twice daily and reevaluation in four weeks. In a consultation report dated September 7, 2011, the claimant was evaluated for low back and bilateral leg pain, as well as, neck pain. According to the claimant he was not working and the claimant stated he was not currently taking any medication but objective findings noted some significant weakness in the right foot, both plantarflexors and dorsiflexors. The claimant was able to bend to thirty degrees and extend without any extension job. The treatment plan included: obtaining an MRI of lumbar spine, pharmacotherapy to include pain medication, anti-inflammatory medication and muscle relaxants as well as a topical pain cream for numbness and neuropathic pain. In a progress report dated October 5, 2011, the claimant was diagnosed with a lumbar herniated disc. The lower extremity exam was unchanged from last visit. The claimant complained of pain with any activity and he stated that only rest improved the pain. Findings from the MRI showed anterior listhesis of L4 over L5, spinal stenosis of L2-L3 and foraminal stenosis in level of L2 and L3 bilaterally. The treatment plan includes an epidural injection of the lumbar spine, a nerve conduction study of the lower extremities and continuation of medications. The claimant was also counseled regarding spine care and activities. Ardavan Aslie, MD conducted a follow up exam on November 2, 2011. The patient was seen for a follow-up examination. The claimant stated that the nerve conduction study \"bothered\" him and that he was pain. The claimant reported that pain started in the back and radiated down his legs, bilaterally. The lower extremity examination remained unchanged from the last visit. A Waddell sign was absent. The claimant's pathology showed severe spinal stenosis at the levels of L2-L3 and L3-L4. The treatment plan was to proceed with an epidural injection, however, the claimant did not want to proceed as he was in too much pain and did not believe that the injections helped. L2-L3 and L3-L4 anterior/posterior decompression and fusion surgery was offered and explained and the claimant stated he wanted to proceed with surgery. Evaluation and counseling of medication use was also conducted at this time. On December 5, 2011, the claimant received an anterior L2-3 fusion and a posterior L2-3 fusion on the following day. On March 14, 2012, Ardavan Aslie, MD examined the claimant where the chief complain was residual pain in the lumbar spine. The claimant stated that he believed surgery helped him. The lower extremity examination findings were unchanged. Sensation was decreased at the level of L5 bilaterally and a Waddell sign was absent. The claimant had not healed from surgery at the time and was instructed to be careful with his back. Physician noted significant instability at L4-L5 area that was discovered during surgery and the claimant was counseled regarding activities and medication use. Ardavan Aslie, MD examined the Claimant on April 11, 2012 and the claimant reported that he increased the distance that he could walk but was still experiencing low back and bilateral leg pain. Objective findings concluded that the incisions were healing with no signs of infection, A Waddell sign was absent and plantarflexors and dorsiflexors were slightly stronger since pre-op. The physician reported that the claimant had actually a two-level severe spinal stenosis and that he should continue with current management. An evaluation and counseling of medications and currently activities were conducted. The claimant received physical therapy on March 23, 2011, April 14, 2011, April 21, 2011, April 25, 2011, April 28, 2011, May 2, 2011, May 5, 2011, and May 9, 2011. In a progress report dated May 12, 2011 by Sharon Gaebler, OTR, CHT, the claimant reported that he was limited to 'five minutes of activity before hands give out.\" The treatment plan at that time was to discharge to an independent home exercise program. In a review of prescriptions, the claimant received the following prescriptions between August 5, 2010 and March 3, 2012: Celebrex, 200 mg, Gabapentin, 300 mg; Tramadol HCL 50 mg; Dendracin Neurodendraxcin, 0.0375-10-20%; Hydrocodone-Acetaminophen 10-325 mg, ciprofloxacin and Amox TR potassium Clavulana. \"\r\n", "rationale"=>"\"Cost Savings Analysis (Based on a remaining life expectancy of 25.0 years per the National Vital Statistics Reports, Vol. 59, No. 9, September 28, 2011) Theramine 450mg #90 invoice priced at $302.73 for a 30 day supply translates to $302.73 monthly, $3,684.75 annually and $92,143.44 for the claimant's remaining life expectancy of 25 years. Gabapentin 300mg #60 invoice priced at $14.60 for a 30 day supply translates to $14.60 monthly, $177.76 annually and $4443.88 for the claimant's remaining life expectancy of 25 years. Tramadol 50mg #60; $12.65 for a 30 day supply translates to $12.65 monthly, $154.01 annually and $3850.34 for the claimant's remaining life expectancy of 25 years. Dendracin Neurodendraxcin (Capsaicin/Menthol/Methyl Salicylate) cream 4oz/120ml monthly $328.47 or a 30 day supply translates to $328.47 monthly, $3,999.12 annually and $99,978.05 for the claimant's remaining life expectancy of 25 years. Total Cost Savings for combined recommendation: Monthly = $658.45 ($302.73 + $14.60 + 12.65 + $328.47 = $658.45) Annually = $8016.63 ($3865.74 + $177.76 + $154.01 +$3999.12 = $8096.63) Remaining Life Expectancy = $200,415.72 ($92,143.44 + $4443.88 + $3850.34 + $99,978.06 = $200,415.72)\"\r\n", "cited_guidelines"=>"\"1) Chronic Pain Medical Treatment Guidelines MTUS (effective July 18, 2008), 8 C.C.R. 9792.20-9792.26 2) Medical Board of California, Guidelines for Prescribing Controlled Substances for Pain, http://www.medbd.ca.gov/pain_guidelines.html 3) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Pain (chronic) Chapter 4) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Low Back-Lumbar & Thoracic (Acute & Chronic) Chapter 5) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Forearm, Wrist, & Hand (Acute & Chronic) Chapter 6) The American Geriatrics Society 2012 Beers Criteria Update Expert Panel. AGS updated Beers Criteria for potentially inappropriate medication use in older adults. J Am Geriatr Soc 2012; DOI: 10.1111/j.1532-5415.2012.03923.x. 7) U.S. Department of Health and Human Services, National Center for Health Statistics, National Vital Statistics Reports, Vol. 59, No. 9, September 28, 2011 Life Expectancy Tables Evidence Based Medical Guidelines Referenced: 1) Littrell RA, Sage T, Miller W. Meprobamate dependence secondary to carisoprodol use. Am J Drug Alcohol Abuse. 1993;19(1):133-134 2) Federal Register 77,330/ Vol. 76, No. 238/ Dec. 12, 2011 3) Institute for Clinical Systems Improvement (ICSI). Assessment and management of chronic pain. Bloomington (MN): Institute for Clinical Systems Improvement (ICSI); 2009 Nov. 91 p. 4) Agency Medical Directors' Group. Interagency Guideline on Opioid Dosing for Chronic Non-cancer Pain. Washington State Agency Medical Directors' Group: 2010. Available online at http://www.agencymeddirectors.wa.gov/Files/OpioidGdline.pdf 5) Chou R, Fanciullo GJ, Fine PG, et al; American Pain Society-American Academy of Pain Medicine Opioids Guidelines Panel. Clinical guidelines for the use of chronic opioid therapy in chronic noncancer pain.J Pain. 2009 Feb;10(2):113-130. 6) Dunn KM, Saunders KW, Rutter CM, et al. Opioid prescriptions for chronic pain and overdose: a cohort study. Ann Intern Med. 2010 Jan 19;152(2):85-92. 7) Heltsley R, Zichterman A, Black DL, et al. Urine drug testing of chronic pain patients. II. Prevalence patterns of prescription opiates and metabolites. J Anal Toxicol. 2010 Jan-Feb;34(1):32-38. Manchikanti L, Manchukonda R, Damron KS, Brandon D, McManus CD, Cash K. Does adherence monitoring reduce controlled substance abuse in chronic pain patients? Pain Physician. 2006 Jan;9(1):57-60. 8) Arnold RM, Han PK, Seltzer D. Opioid contracts in chronic nonmalignant pain management: Objectives and uncertainties. Am J Med. 2006;119:292-296\"\r\n", "reviewer_display_name"=>"Anthony Riso, M.D", "reviewer_specialty_name"=>"Anesthesiology", "reviewer_license_description"=>"Medical Doctor"}, "commit"=>"Create .doc File"}
+Completed 500 Internal Server Error in 1ms
+
+ArgumentError (must pass :url):
+  app/controllers/inputs_controller.rb:29:in `create'
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.2ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.0ms)
+
+
+Started POST "/inputs/create" for 127.0.0.1 at 2012-05-28 13:27:03 +0000
+  Processing by InputsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZWsPIp8gjqRXLVqCgcZs1iaMrD1UZ95FMmnUwZcKdz4=", "input"=>{"display_claimant_name"=>"Rene Ortegon", "jurisdictional_state"=>"CA", "claim_number"=>"SCA900070054", "talked_to"=>"Ardavan Aslie", "call_datetime"=>"05/05/12 00:00:00", "call_notes"=>"\"A peer to peer teleconference was attempted with Dr. Aslie on 05/07/2012 at 4:20 pm ET.Spoke with Missy - Dr Aslie is available Wednesday's and Friday's to speak\"\r\n", "diagnosis"=>"N/A", "document_date_mdy"=>"05/17/12", "name"=>"CALIFORNIA DEPART. OF INDUSTRIAL RE", "suffix"=>"", "ref_doc_description"=>"Pharmacy Fee Schedule", "add_que_description"=>"\"1. Please call Physician to discuss each medication: usage, dosage, generic versus brand name, weaning if appropriate, whether his change in medication is necessary or not, with cost savings analysis for each medication with a total analysis. \"\r\n", "response"=>"", "opinion"=>"After numerous attempts to speak with the prescribing physic", "recommendation_name"=>"Mr. Ran Durand", "clinical_summary"=>"\"The claimant is a 57-year-old male who was reportedly injured at his job on August 2, 2010 where he was employed as a saw filer/sharpener for approximately thirty years. According to the claimant the injury was of a \"repetitive motion\" nature affecting the bilateral upper extremities and his back. On December 5, 2011, the claimant received an anterior/posterior lumbar fusion. According to the operative report there were no complications with procedure. On June 13, 2011, Carl H. Shin, MD, examined the claimant. The claimant was re-evaluated for carpal tunnel syndrome bilaterally. At the time, the claimant's chief complaint was pain and numbness in the first three digits of both hands, sleep disturbance and pain ranging from six to eight on a visual analog scale (VAS) of zero to ten, with zero reflecting no pain and ten reflecting the most intense pain. The claimant was not working at the time of the examination and a complete review of systems and physical examination were conducted. The treatment plan included a repeat electromyogram study to determine nerve damage, a referral to a hand specialist, continuation of gabapentin with increasing dosage to 600 mg twice daily and reevaluation in four weeks. In a consultation report dated September 7, 2011, the claimant was evaluated for low back and bilateral leg pain, as well as, neck pain. According to the claimant he was not working and the claimant stated he was not currently taking any medication but objective findings noted some significant weakness in the right foot, both plantarflexors and dorsiflexors. The claimant was able to bend to thirty degrees and extend without any extension job. The treatment plan included: obtaining an MRI of lumbar spine, pharmacotherapy to include pain medication, anti-inflammatory medication and muscle relaxants as well as a topical pain cream for numbness and neuropathic pain. In a progress report dated October 5, 2011, the claimant was diagnosed with a lumbar herniated disc. The lower extremity exam was unchanged from last visit. The claimant complained of pain with any activity and he stated that only rest improved the pain. Findings from the MRI showed anterior listhesis of L4 over L5, spinal stenosis of L2-L3 and foraminal stenosis in level of L2 and L3 bilaterally. The treatment plan includes an epidural injection of the lumbar spine, a nerve conduction study of the lower extremities and continuation of medications. The claimant was also counseled regarding spine care and activities. Ardavan Aslie, MD conducted a follow up exam on November 2, 2011. The patient was seen for a follow-up examination. The claimant stated that the nerve conduction study \"bothered\" him and that he was pain. The claimant reported that pain started in the back and radiated down his legs, bilaterally. The lower extremity examination remained unchanged from the last visit. A Waddell sign was absent. The claimant's pathology showed severe spinal stenosis at the levels of L2-L3 and L3-L4. The treatment plan was to proceed with an epidural injection, however, the claimant did not want to proceed as he was in too much pain and did not believe that the injections helped. L2-L3 and L3-L4 anterior/posterior decompression and fusion surgery was offered and explained and the claimant stated he wanted to proceed with surgery. Evaluation and counseling of medication use was also conducted at this time. On December 5, 2011, the claimant received an anterior L2-3 fusion and a posterior L2-3 fusion on the following day. On March 14, 2012, Ardavan Aslie, MD examined the claimant where the chief complain was residual pain in the lumbar spine. The claimant stated that he believed surgery helped him. The lower extremity examination findings were unchanged. Sensation was decreased at the level of L5 bilaterally and a Waddell sign was absent. The claimant had not healed from surgery at the time and was instructed to be careful with his back. Physician noted significant instability at L4-L5 area that was discovered during surgery and the claimant was counseled regarding activities and medication use. Ardavan Aslie, MD examined the Claimant on April 11, 2012 and the claimant reported that he increased the distance that he could walk but was still experiencing low back and bilateral leg pain. Objective findings concluded that the incisions were healing with no signs of infection, A Waddell sign was absent and plantarflexors and dorsiflexors were slightly stronger since pre-op. The physician reported that the claimant had actually a two-level severe spinal stenosis and that he should continue with current management. An evaluation and counseling of medications and currently activities were conducted. The claimant received physical therapy on March 23, 2011, April 14, 2011, April 21, 2011, April 25, 2011, April 28, 2011, May 2, 2011, May 5, 2011, and May 9, 2011. In a progress report dated May 12, 2011 by Sharon Gaebler, OTR, CHT, the claimant reported that he was limited to 'five minutes of activity before hands give out.\" The treatment plan at that time was to discharge to an independent home exercise program. In a review of prescriptions, the claimant received the following prescriptions between August 5, 2010 and March 3, 2012: Celebrex, 200 mg, Gabapentin, 300 mg; Tramadol HCL 50 mg; Dendracin Neurodendraxcin, 0.0375-10-20%; Hydrocodone-Acetaminophen 10-325 mg, ciprofloxacin and Amox TR potassium Clavulana. \"\r\n", "rationale"=>"\"Cost Savings Analysis (Based on a remaining life expectancy of 25.0 years per the National Vital Statistics Reports, Vol. 59, No. 9, September 28, 2011) Theramine 450mg #90 invoice priced at $302.73 for a 30 day supply translates to $302.73 monthly, $3,684.75 annually and $92,143.44 for the claimant's remaining life expectancy of 25 years. Gabapentin 300mg #60 invoice priced at $14.60 for a 30 day supply translates to $14.60 monthly, $177.76 annually and $4443.88 for the claimant's remaining life expectancy of 25 years. Tramadol 50mg #60; $12.65 for a 30 day supply translates to $12.65 monthly, $154.01 annually and $3850.34 for the claimant's remaining life expectancy of 25 years. Dendracin Neurodendraxcin (Capsaicin/Menthol/Methyl Salicylate) cream 4oz/120ml monthly $328.47 or a 30 day supply translates to $328.47 monthly, $3,999.12 annually and $99,978.05 for the claimant's remaining life expectancy of 25 years. Total Cost Savings for combined recommendation: Monthly = $658.45 ($302.73 + $14.60 + 12.65 + $328.47 = $658.45) Annually = $8016.63 ($3865.74 + $177.76 + $154.01 +$3999.12 = $8096.63) Remaining Life Expectancy = $200,415.72 ($92,143.44 + $4443.88 + $3850.34 + $99,978.06 = $200,415.72)\"\r\n", "cited_guidelines"=>"\"1) Chronic Pain Medical Treatment Guidelines MTUS (effective July 18, 2008), 8 C.C.R. 9792.20-9792.26 2) Medical Board of California, Guidelines for Prescribing Controlled Substances for Pain, http://www.medbd.ca.gov/pain_guidelines.html 3) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Pain (chronic) Chapter 4) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Low Back-Lumbar & Thoracic (Acute & Chronic) Chapter 5) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Forearm, Wrist, & Hand (Acute & Chronic) Chapter 6) The American Geriatrics Society 2012 Beers Criteria Update Expert Panel. AGS updated Beers Criteria for potentially inappropriate medication use in older adults. J Am Geriatr Soc 2012; DOI: 10.1111/j.1532-5415.2012.03923.x. 7) U.S. Department of Health and Human Services, National Center for Health Statistics, National Vital Statistics Reports, Vol. 59, No. 9, September 28, 2011 Life Expectancy Tables Evidence Based Medical Guidelines Referenced: 1) Littrell RA, Sage T, Miller W. Meprobamate dependence secondary to carisoprodol use. Am J Drug Alcohol Abuse. 1993;19(1):133-134 2) Federal Register 77,330/ Vol. 76, No. 238/ Dec. 12, 2011 3) Institute for Clinical Systems Improvement (ICSI). Assessment and management of chronic pain. Bloomington (MN): Institute for Clinical Systems Improvement (ICSI); 2009 Nov. 91 p. 4) Agency Medical Directors' Group. Interagency Guideline on Opioid Dosing for Chronic Non-cancer Pain. Washington State Agency Medical Directors' Group: 2010. Available online at http://www.agencymeddirectors.wa.gov/Files/OpioidGdline.pdf 5) Chou R, Fanciullo GJ, Fine PG, et al; American Pain Society-American Academy of Pain Medicine Opioids Guidelines Panel. Clinical guidelines for the use of chronic opioid therapy in chronic noncancer pain.J Pain. 2009 Feb;10(2):113-130. 6) Dunn KM, Saunders KW, Rutter CM, et al. Opioid prescriptions for chronic pain and overdose: a cohort study. Ann Intern Med. 2010 Jan 19;152(2):85-92. 7) Heltsley R, Zichterman A, Black DL, et al. Urine drug testing of chronic pain patients. II. Prevalence patterns of prescription opiates and metabolites. J Anal Toxicol. 2010 Jan-Feb;34(1):32-38. Manchikanti L, Manchukonda R, Damron KS, Brandon D, McManus CD, Cash K. Does adherence monitoring reduce controlled substance abuse in chronic pain patients? Pain Physician. 2006 Jan;9(1):57-60. 8) Arnold RM, Han PK, Seltzer D. Opioid contracts in chronic nonmalignant pain management: Objectives and uncertainties. Am J Med. 2006;119:292-296\"\r\n", "reviewer_display_name"=>"Anthony Riso, M.D", "reviewer_specialty_name"=>"Anesthesiology", "reviewer_license_description"=>"Medical Doctor"}, "commit"=>"Create .doc File"}
+Completed 500 Internal Server Error in 3644ms
+
+RestClient::BadRequest (400 Bad Request):
+  app/controllers/inputs_controller.rb:50:in `block in create'
+  app/controllers/inputs_controller.rb:29:in `create'
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.1ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.3ms)
+
+
+Started POST "/inputs/create" for 127.0.0.1 at 2012-05-28 14:00:41 +0000
+  Processing by InputsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZWsPIp8gjqRXLVqCgcZs1iaMrD1UZ95FMmnUwZcKdz4=", "input"=>{"display_claimant_name"=>"Rene Ortegon", "jurisdictional_state"=>"CA", "claim_number"=>"SCA900070054", "talked_to"=>"Ardavan Aslie", "call_datetime"=>"05/05/12 00:00:00", "call_notes"=>"\"A peer to peer teleconference was attempted with Dr. Aslie on 05/07/2012 at 4:20 pm ET.Spoke with Missy - Dr Aslie is available Wednesday's and Friday's to speak\"\r\n", "diagnosis"=>"N/A", "document_date_mdy"=>"05/17/12", "name"=>"CALIFORNIA DEPART. OF INDUSTRIAL RE", "suffix"=>"", "ref_doc_description"=>"Pharmacy Fee Schedule", "add_que_description"=>"\"1. Please call Physician to discuss each medication: usage, dosage, generic versus brand name, weaning if appropriate, whether his change in medication is necessary or not, with cost savings analysis for each medication with a total analysis. \"\r\n", "response"=>"", "opinion"=>"After numerous attempts to speak with the prescribing physic", "recommendation_name"=>"Mr. Ran Durand", "clinical_summary"=>"\"The claimant is a 57-year-old male who was reportedly injured at his job on August 2, 2010 where he was employed as a saw filer/sharpener for approximately thirty years. According to the claimant the injury was of a \"repetitive motion\" nature affecting the bilateral upper extremities and his back. On December 5, 2011, the claimant received an anterior/posterior lumbar fusion. According to the operative report there were no complications with procedure. On June 13, 2011, Carl H. Shin, MD, examined the claimant. The claimant was re-evaluated for carpal tunnel syndrome bilaterally. At the time, the claimant's chief complaint was pain and numbness in the first three digits of both hands, sleep disturbance and pain ranging from six to eight on a visual analog scale (VAS) of zero to ten, with zero reflecting no pain and ten reflecting the most intense pain. The claimant was not working at the time of the examination and a complete review of systems and physical examination were conducted. The treatment plan included a repeat electromyogram study to determine nerve damage, a referral to a hand specialist, continuation of gabapentin with increasing dosage to 600 mg twice daily and reevaluation in four weeks. In a consultation report dated September 7, 2011, the claimant was evaluated for low back and bilateral leg pain, as well as, neck pain. According to the claimant he was not working and the claimant stated he was not currently taking any medication but objective findings noted some significant weakness in the right foot, both plantarflexors and dorsiflexors. The claimant was able to bend to thirty degrees and extend without any extension job. The treatment plan included: obtaining an MRI of lumbar spine, pharmacotherapy to include pain medication, anti-inflammatory medication and muscle relaxants as well as a topical pain cream for numbness and neuropathic pain. In a progress report dated October 5, 2011, the claimant was diagnosed with a lumbar herniated disc. The lower extremity exam was unchanged from last visit. The claimant complained of pain with any activity and he stated that only rest improved the pain. Findings from the MRI showed anterior listhesis of L4 over L5, spinal stenosis of L2-L3 and foraminal stenosis in level of L2 and L3 bilaterally. The treatment plan includes an epidural injection of the lumbar spine, a nerve conduction study of the lower extremities and continuation of medications. The claimant was also counseled regarding spine care and activities. Ardavan Aslie, MD conducted a follow up exam on November 2, 2011. The patient was seen for a follow-up examination. The claimant stated that the nerve conduction study \"bothered\" him and that he was pain. The claimant reported that pain started in the back and radiated down his legs, bilaterally. The lower extremity examination remained unchanged from the last visit. A Waddell sign was absent. The claimant's pathology showed severe spinal stenosis at the levels of L2-L3 and L3-L4. The treatment plan was to proceed with an epidural injection, however, the claimant did not want to proceed as he was in too much pain and did not believe that the injections helped. L2-L3 and L3-L4 anterior/posterior decompression and fusion surgery was offered and explained and the claimant stated he wanted to proceed with surgery. Evaluation and counseling of medication use was also conducted at this time. On December 5, 2011, the claimant received an anterior L2-3 fusion and a posterior L2-3 fusion on the following day. On March 14, 2012, Ardavan Aslie, MD examined the claimant where the chief complain was residual pain in the lumbar spine. The claimant stated that he believed surgery helped him. The lower extremity examination findings were unchanged. Sensation was decreased at the level of L5 bilaterally and a Waddell sign was absent. The claimant had not healed from surgery at the time and was instructed to be careful with his back. Physician noted significant instability at L4-L5 area that was discovered during surgery and the claimant was counseled regarding activities and medication use. Ardavan Aslie, MD examined the Claimant on April 11, 2012 and the claimant reported that he increased the distance that he could walk but was still experiencing low back and bilateral leg pain. Objective findings concluded that the incisions were healing with no signs of infection, A Waddell sign was absent and plantarflexors and dorsiflexors were slightly stronger since pre-op. The physician reported that the claimant had actually a two-level severe spinal stenosis and that he should continue with current management. An evaluation and counseling of medications and currently activities were conducted. The claimant received physical therapy on March 23, 2011, April 14, 2011, April 21, 2011, April 25, 2011, April 28, 2011, May 2, 2011, May 5, 2011, and May 9, 2011. In a progress report dated May 12, 2011 by Sharon Gaebler, OTR, CHT, the claimant reported that he was limited to 'five minutes of activity before hands give out.\" The treatment plan at that time was to discharge to an independent home exercise program. In a review of prescriptions, the claimant received the following prescriptions between August 5, 2010 and March 3, 2012: Celebrex, 200 mg, Gabapentin, 300 mg; Tramadol HCL 50 mg; Dendracin Neurodendraxcin, 0.0375-10-20%; Hydrocodone-Acetaminophen 10-325 mg, ciprofloxacin and Amox TR potassium Clavulana. \"\r\n", "rationale"=>"\"Cost Savings Analysis (Based on a remaining life expectancy of 25.0 years per the National Vital Statistics Reports, Vol. 59, No. 9, September 28, 2011) Theramine 450mg #90 invoice priced at $302.73 for a 30 day supply translates to $302.73 monthly, $3,684.75 annually and $92,143.44 for the claimant's remaining life expectancy of 25 years. Gabapentin 300mg #60 invoice priced at $14.60 for a 30 day supply translates to $14.60 monthly, $177.76 annually and $4443.88 for the claimant's remaining life expectancy of 25 years. Tramadol 50mg #60; $12.65 for a 30 day supply translates to $12.65 monthly, $154.01 annually and $3850.34 for the claimant's remaining life expectancy of 25 years. Dendracin Neurodendraxcin (Capsaicin/Menthol/Methyl Salicylate) cream 4oz/120ml monthly $328.47 or a 30 day supply translates to $328.47 monthly, $3,999.12 annually and $99,978.05 for the claimant's remaining life expectancy of 25 years. Total Cost Savings for combined recommendation: Monthly = $658.45 ($302.73 + $14.60 + 12.65 + $328.47 = $658.45) Annually = $8016.63 ($3865.74 + $177.76 + $154.01 +$3999.12 = $8096.63) Remaining Life Expectancy = $200,415.72 ($92,143.44 + $4443.88 + $3850.34 + $99,978.06 = $200,415.72)\"\r\n", "cited_guidelines"=>"\"1) Chronic Pain Medical Treatment Guidelines MTUS (effective July 18, 2008), 8 C.C.R. 9792.20-9792.26 2) Medical Board of California, Guidelines for Prescribing Controlled Substances for Pain, http://www.medbd.ca.gov/pain_guidelines.html 3) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Pain (chronic) Chapter 4) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Low Back-Lumbar & Thoracic (Acute & Chronic) Chapter 5) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Forearm, Wrist, & Hand (Acute & Chronic) Chapter 6) The American Geriatrics Society 2012 Beers Criteria Update Expert Panel. AGS updated Beers Criteria for potentially inappropriate medication use in older adults. J Am Geriatr Soc 2012; DOI: 10.1111/j.1532-5415.2012.03923.x. 7) U.S. Department of Health and Human Services, National Center for Health Statistics, National Vital Statistics Reports, Vol. 59, No. 9, September 28, 2011 Life Expectancy Tables Evidence Based Medical Guidelines Referenced: 1) Littrell RA, Sage T, Miller W. Meprobamate dependence secondary to carisoprodol use. Am J Drug Alcohol Abuse. 1993;19(1):133-134 2) Federal Register 77,330/ Vol. 76, No. 238/ Dec. 12, 2011 3) Institute for Clinical Systems Improvement (ICSI). Assessment and management of chronic pain. Bloomington (MN): Institute for Clinical Systems Improvement (ICSI); 2009 Nov. 91 p. 4) Agency Medical Directors' Group. Interagency Guideline on Opioid Dosing for Chronic Non-cancer Pain. Washington State Agency Medical Directors' Group: 2010. Available online at http://www.agencymeddirectors.wa.gov/Files/OpioidGdline.pdf 5) Chou R, Fanciullo GJ, Fine PG, et al; American Pain Society-American Academy of Pain Medicine Opioids Guidelines Panel. Clinical guidelines for the use of chronic opioid therapy in chronic noncancer pain.J Pain. 2009 Feb;10(2):113-130. 6) Dunn KM, Saunders KW, Rutter CM, et al. Opioid prescriptions for chronic pain and overdose: a cohort study. Ann Intern Med. 2010 Jan 19;152(2):85-92. 7) Heltsley R, Zichterman A, Black DL, et al. Urine drug testing of chronic pain patients. II. Prevalence patterns of prescription opiates and metabolites. J Anal Toxicol. 2010 Jan-Feb;34(1):32-38. Manchikanti L, Manchukonda R, Damron KS, Brandon D, McManus CD, Cash K. Does adherence monitoring reduce controlled substance abuse in chronic pain patients? Pain Physician. 2006 Jan;9(1):57-60. 8) Arnold RM, Han PK, Seltzer D. Opioid contracts in chronic nonmalignant pain management: Objectives and uncertainties. Am J Med. 2006;119:292-296\"\r\n", "reviewer_display_name"=>"Anthony Riso, M.D", "reviewer_specialty_name"=>"Anesthesiology", "reviewer_license_description"=>"Medical Doctor"}, "commit"=>"Create .doc File"}
+Completed 500 Internal Server Error in 1ms
+
+NameError (uninitialized constant InputsController::RAILS_ROOT):
+  app/controllers/inputs_controller.rb:20:in `create'
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.8ms)
+
+
+Started POST "/inputs/create" for 127.0.0.1 at 2012-05-28 14:01:11 +0000
+  Processing by InputsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZWsPIp8gjqRXLVqCgcZs1iaMrD1UZ95FMmnUwZcKdz4=", "input"=>{"display_claimant_name"=>"Rene Ortegon", "jurisdictional_state"=>"CA", "claim_number"=>"SCA900070054", "talked_to"=>"Ardavan Aslie", "call_datetime"=>"05/05/12 00:00:00", "call_notes"=>"\"A peer to peer teleconference was attempted with Dr. Aslie on 05/07/2012 at 4:20 pm ET.Spoke with Missy - Dr Aslie is available Wednesday's and Friday's to speak\"\r\n", "diagnosis"=>"N/A", "document_date_mdy"=>"05/17/12", "name"=>"CALIFORNIA DEPART. OF INDUSTRIAL RE", "suffix"=>"", "ref_doc_description"=>"Pharmacy Fee Schedule", "add_que_description"=>"\"1. Please call Physician to discuss each medication: usage, dosage, generic versus brand name, weaning if appropriate, whether his change in medication is necessary or not, with cost savings analysis for each medication with a total analysis. \"\r\n", "response"=>"", "opinion"=>"After numerous attempts to speak with the prescribing physic", "recommendation_name"=>"Mr. Ran Durand", "clinical_summary"=>"\"The claimant is a 57-year-old male who was reportedly injured at his job on August 2, 2010 where he was employed as a saw filer/sharpener for approximately thirty years. According to the claimant the injury was of a \"repetitive motion\" nature affecting the bilateral upper extremities and his back. On December 5, 2011, the claimant received an anterior/posterior lumbar fusion. According to the operative report there were no complications with procedure. On June 13, 2011, Carl H. Shin, MD, examined the claimant. The claimant was re-evaluated for carpal tunnel syndrome bilaterally. At the time, the claimant's chief complaint was pain and numbness in the first three digits of both hands, sleep disturbance and pain ranging from six to eight on a visual analog scale (VAS) of zero to ten, with zero reflecting no pain and ten reflecting the most intense pain. The claimant was not working at the time of the examination and a complete review of systems and physical examination were conducted. The treatment plan included a repeat electromyogram study to determine nerve damage, a referral to a hand specialist, continuation of gabapentin with increasing dosage to 600 mg twice daily and reevaluation in four weeks. In a consultation report dated September 7, 2011, the claimant was evaluated for low back and bilateral leg pain, as well as, neck pain. According to the claimant he was not working and the claimant stated he was not currently taking any medication but objective findings noted some significant weakness in the right foot, both plantarflexors and dorsiflexors. The claimant was able to bend to thirty degrees and extend without any extension job. The treatment plan included: obtaining an MRI of lumbar spine, pharmacotherapy to include pain medication, anti-inflammatory medication and muscle relaxants as well as a topical pain cream for numbness and neuropathic pain. In a progress report dated October 5, 2011, the claimant was diagnosed with a lumbar herniated disc. The lower extremity exam was unchanged from last visit. The claimant complained of pain with any activity and he stated that only rest improved the pain. Findings from the MRI showed anterior listhesis of L4 over L5, spinal stenosis of L2-L3 and foraminal stenosis in level of L2 and L3 bilaterally. The treatment plan includes an epidural injection of the lumbar spine, a nerve conduction study of the lower extremities and continuation of medications. The claimant was also counseled regarding spine care and activities. Ardavan Aslie, MD conducted a follow up exam on November 2, 2011. The patient was seen for a follow-up examination. The claimant stated that the nerve conduction study \"bothered\" him and that he was pain. The claimant reported that pain started in the back and radiated down his legs, bilaterally. The lower extremity examination remained unchanged from the last visit. A Waddell sign was absent. The claimant's pathology showed severe spinal stenosis at the levels of L2-L3 and L3-L4. The treatment plan was to proceed with an epidural injection, however, the claimant did not want to proceed as he was in too much pain and did not believe that the injections helped. L2-L3 and L3-L4 anterior/posterior decompression and fusion surgery was offered and explained and the claimant stated he wanted to proceed with surgery. Evaluation and counseling of medication use was also conducted at this time. On December 5, 2011, the claimant received an anterior L2-3 fusion and a posterior L2-3 fusion on the following day. On March 14, 2012, Ardavan Aslie, MD examined the claimant where the chief complain was residual pain in the lumbar spine. The claimant stated that he believed surgery helped him. The lower extremity examination findings were unchanged. Sensation was decreased at the level of L5 bilaterally and a Waddell sign was absent. The claimant had not healed from surgery at the time and was instructed to be careful with his back. Physician noted significant instability at L4-L5 area that was discovered during surgery and the claimant was counseled regarding activities and medication use. Ardavan Aslie, MD examined the Claimant on April 11, 2012 and the claimant reported that he increased the distance that he could walk but was still experiencing low back and bilateral leg pain. Objective findings concluded that the incisions were healing with no signs of infection, A Waddell sign was absent and plantarflexors and dorsiflexors were slightly stronger since pre-op. The physician reported that the claimant had actually a two-level severe spinal stenosis and that he should continue with current management. An evaluation and counseling of medications and currently activities were conducted. The claimant received physical therapy on March 23, 2011, April 14, 2011, April 21, 2011, April 25, 2011, April 28, 2011, May 2, 2011, May 5, 2011, and May 9, 2011. In a progress report dated May 12, 2011 by Sharon Gaebler, OTR, CHT, the claimant reported that he was limited to 'five minutes of activity before hands give out.\" The treatment plan at that time was to discharge to an independent home exercise program. In a review of prescriptions, the claimant received the following prescriptions between August 5, 2010 and March 3, 2012: Celebrex, 200 mg, Gabapentin, 300 mg; Tramadol HCL 50 mg; Dendracin Neurodendraxcin, 0.0375-10-20%; Hydrocodone-Acetaminophen 10-325 mg, ciprofloxacin and Amox TR potassium Clavulana. \"\r\n", "rationale"=>"\"Cost Savings Analysis (Based on a remaining life expectancy of 25.0 years per the National Vital Statistics Reports, Vol. 59, No. 9, September 28, 2011) Theramine 450mg #90 invoice priced at $302.73 for a 30 day supply translates to $302.73 monthly, $3,684.75 annually and $92,143.44 for the claimant's remaining life expectancy of 25 years. Gabapentin 300mg #60 invoice priced at $14.60 for a 30 day supply translates to $14.60 monthly, $177.76 annually and $4443.88 for the claimant's remaining life expectancy of 25 years. Tramadol 50mg #60; $12.65 for a 30 day supply translates to $12.65 monthly, $154.01 annually and $3850.34 for the claimant's remaining life expectancy of 25 years. Dendracin Neurodendraxcin (Capsaicin/Menthol/Methyl Salicylate) cream 4oz/120ml monthly $328.47 or a 30 day supply translates to $328.47 monthly, $3,999.12 annually and $99,978.05 for the claimant's remaining life expectancy of 25 years. Total Cost Savings for combined recommendation: Monthly = $658.45 ($302.73 + $14.60 + 12.65 + $328.47 = $658.45) Annually = $8016.63 ($3865.74 + $177.76 + $154.01 +$3999.12 = $8096.63) Remaining Life Expectancy = $200,415.72 ($92,143.44 + $4443.88 + $3850.34 + $99,978.06 = $200,415.72)\"\r\n", "cited_guidelines"=>"\"1) Chronic Pain Medical Treatment Guidelines MTUS (effective July 18, 2008), 8 C.C.R. 9792.20-9792.26 2) Medical Board of California, Guidelines for Prescribing Controlled Substances for Pain, http://www.medbd.ca.gov/pain_guidelines.html 3) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Pain (chronic) Chapter 4) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Low Back-Lumbar & Thoracic (Acute & Chronic) Chapter 5) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Forearm, Wrist, & Hand (Acute & Chronic) Chapter 6) The American Geriatrics Society 2012 Beers Criteria Update Expert Panel. AGS updated Beers Criteria for potentially inappropriate medication use in older adults. J Am Geriatr Soc 2012; DOI: 10.1111/j.1532-5415.2012.03923.x. 7) U.S. Department of Health and Human Services, National Center for Health Statistics, National Vital Statistics Reports, Vol. 59, No. 9, September 28, 2011 Life Expectancy Tables Evidence Based Medical Guidelines Referenced: 1) Littrell RA, Sage T, Miller W. Meprobamate dependence secondary to carisoprodol use. Am J Drug Alcohol Abuse. 1993;19(1):133-134 2) Federal Register 77,330/ Vol. 76, No. 238/ Dec. 12, 2011 3) Institute for Clinical Systems Improvement (ICSI). Assessment and management of chronic pain. Bloomington (MN): Institute for Clinical Systems Improvement (ICSI); 2009 Nov. 91 p. 4) Agency Medical Directors' Group. Interagency Guideline on Opioid Dosing for Chronic Non-cancer Pain. Washington State Agency Medical Directors' Group: 2010. Available online at http://www.agencymeddirectors.wa.gov/Files/OpioidGdline.pdf 5) Chou R, Fanciullo GJ, Fine PG, et al; American Pain Society-American Academy of Pain Medicine Opioids Guidelines Panel. Clinical guidelines for the use of chronic opioid therapy in chronic noncancer pain.J Pain. 2009 Feb;10(2):113-130. 6) Dunn KM, Saunders KW, Rutter CM, et al. Opioid prescriptions for chronic pain and overdose: a cohort study. Ann Intern Med. 2010 Jan 19;152(2):85-92. 7) Heltsley R, Zichterman A, Black DL, et al. Urine drug testing of chronic pain patients. II. Prevalence patterns of prescription opiates and metabolites. J Anal Toxicol. 2010 Jan-Feb;34(1):32-38. Manchikanti L, Manchukonda R, Damron KS, Brandon D, McManus CD, Cash K. Does adherence monitoring reduce controlled substance abuse in chronic pain patients? Pain Physician. 2006 Jan;9(1):57-60. 8) Arnold RM, Han PK, Seltzer D. Opioid contracts in chronic nonmalignant pain management: Objectives and uncertainties. Am J Med. 2006;119:292-296\"\r\n", "reviewer_display_name"=>"Anthony Riso, M.D", "reviewer_specialty_name"=>"Anesthesiology", "reviewer_license_description"=>"Medical Doctor"}, "commit"=>"Create .doc File"}
+Completed 500 Internal Server Error in 3005ms
+
+ActionView::MissingTemplate (Missing template inputs/create, application/create with {:handlers=>[:erb, :builder, :coffee, :haml], :formats=>[:html], :locale=>[:en, :en]}. Searched in:
+  * "/home/drajgor/rails_projects/msdoc/app/views"
+):
+  
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.5ms)
+
+
+Started POST "/inputs/create" for 127.0.0.1 at 2012-05-28 14:02:29 +0000
+
+SyntaxError (/home/drajgor/rails_projects/msdoc/app/controllers/inputs_controller.rb:36: syntax error, unexpected ','
+/home/drajgor/rails_projects/msdoc/app/controllers/inputs_controller.rb:37: syntax error, unexpected tASSOC, expecting keyword_end
+          'jurisdictional_state' => 'Gujarat'
+                                   ^
+/home/drajgor/rails_projects/msdoc/app/controllers/inputs_controller.rb:38: syntax error, unexpected '}', expecting keyword_end
+/home/drajgor/rails_projects/msdoc/app/controllers/inputs_controller.rb:39: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+...    }.to_json, :content_type => :json) {|response, request, ...
+...                               ^
+/home/drajgor/rails_projects/msdoc/app/controllers/inputs_controller.rb:39: syntax error, unexpected tAMPER, expecting '='
+... {|response, request, result, &block|
+...                               ^
+/home/drajgor/rails_projects/msdoc/app/controllers/inputs_controller.rb:52: syntax error, unexpected '}', expecting keyword_end):
+  
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.7ms)
+
+
+Started POST "/inputs/create" for 127.0.0.1 at 2012-05-28 14:35:32 +0000
+  Processing by InputsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZWsPIp8gjqRXLVqCgcZs1iaMrD1UZ95FMmnUwZcKdz4=", "input"=>{"display_claimant_name"=>"Rene Ortegon", "jurisdictional_state"=>"CA", "claim_number"=>"SCA900070054", "talked_to"=>"Ardavan Aslie", "call_datetime"=>"05/05/12 00:00:00", "call_notes"=>"\"A peer to peer teleconference was attempted with Dr. Aslie on 05/07/2012 at 4:20 pm ET.Spoke with Missy - Dr Aslie is available Wednesday's and Friday's to speak\"\r\n", "diagnosis"=>"N/A", "document_date_mdy"=>"05/17/12", "name"=>"CALIFORNIA DEPART. OF INDUSTRIAL RE", "suffix"=>"", "ref_doc_description"=>"Pharmacy Fee Schedule", "add_que_description"=>"\"1. Please call Physician to discuss each medication: usage, dosage, generic versus brand name, weaning if appropriate, whether his change in medication is necessary or not, with cost savings analysis for each medication with a total analysis. \"\r\n", "response"=>"", "opinion"=>"After numerous attempts to speak with the prescribing physic", "recommendation_name"=>"Mr. Ran Durand", "clinical_summary"=>"\"The claimant is a 57-year-old male who was reportedly injured at his job on August 2, 2010 where he was employed as a saw filer/sharpener for approximately thirty years. According to the claimant the injury was of a \"repetitive motion\" nature affecting the bilateral upper extremities and his back. On December 5, 2011, the claimant received an anterior/posterior lumbar fusion. According to the operative report there were no complications with procedure. On June 13, 2011, Carl H. Shin, MD, examined the claimant. The claimant was re-evaluated for carpal tunnel syndrome bilaterally. At the time, the claimant's chief complaint was pain and numbness in the first three digits of both hands, sleep disturbance and pain ranging from six to eight on a visual analog scale (VAS) of zero to ten, with zero reflecting no pain and ten reflecting the most intense pain. The claimant was not working at the time of the examination and a complete review of systems and physical examination were conducted. The treatment plan included a repeat electromyogram study to determine nerve damage, a referral to a hand specialist, continuation of gabapentin with increasing dosage to 600 mg twice daily and reevaluation in four weeks. In a consultation report dated September 7, 2011, the claimant was evaluated for low back and bilateral leg pain, as well as, neck pain. According to the claimant he was not working and the claimant stated he was not currently taking any medication but objective findings noted some significant weakness in the right foot, both plantarflexors and dorsiflexors. The claimant was able to bend to thirty degrees and extend without any extension job. The treatment plan included: obtaining an MRI of lumbar spine, pharmacotherapy to include pain medication, anti-inflammatory medication and muscle relaxants as well as a topical pain cream for numbness and neuropathic pain. In a progress report dated October 5, 2011, the claimant was diagnosed with a lumbar herniated disc. The lower extremity exam was unchanged from last visit. The claimant complained of pain with any activity and he stated that only rest improved the pain. Findings from the MRI showed anterior listhesis of L4 over L5, spinal stenosis of L2-L3 and foraminal stenosis in level of L2 and L3 bilaterally. The treatment plan includes an epidural injection of the lumbar spine, a nerve conduction study of the lower extremities and continuation of medications. The claimant was also counseled regarding spine care and activities. Ardavan Aslie, MD conducted a follow up exam on November 2, 2011. The patient was seen for a follow-up examination. The claimant stated that the nerve conduction study \"bothered\" him and that he was pain. The claimant reported that pain started in the back and radiated down his legs, bilaterally. The lower extremity examination remained unchanged from the last visit. A Waddell sign was absent. The claimant's pathology showed severe spinal stenosis at the levels of L2-L3 and L3-L4. The treatment plan was to proceed with an epidural injection, however, the claimant did not want to proceed as he was in too much pain and did not believe that the injections helped. L2-L3 and L3-L4 anterior/posterior decompression and fusion surgery was offered and explained and the claimant stated he wanted to proceed with surgery. Evaluation and counseling of medication use was also conducted at this time. On December 5, 2011, the claimant received an anterior L2-3 fusion and a posterior L2-3 fusion on the following day. On March 14, 2012, Ardavan Aslie, MD examined the claimant where the chief complain was residual pain in the lumbar spine. The claimant stated that he believed surgery helped him. The lower extremity examination findings were unchanged. Sensation was decreased at the level of L5 bilaterally and a Waddell sign was absent. The claimant had not healed from surgery at the time and was instructed to be careful with his back. Physician noted significant instability at L4-L5 area that was discovered during surgery and the claimant was counseled regarding activities and medication use. Ardavan Aslie, MD examined the Claimant on April 11, 2012 and the claimant reported that he increased the distance that he could walk but was still experiencing low back and bilateral leg pain. Objective findings concluded that the incisions were healing with no signs of infection, A Waddell sign was absent and plantarflexors and dorsiflexors were slightly stronger since pre-op. The physician reported that the claimant had actually a two-level severe spinal stenosis and that he should continue with current management. An evaluation and counseling of medications and currently activities were conducted. The claimant received physical therapy on March 23, 2011, April 14, 2011, April 21, 2011, April 25, 2011, April 28, 2011, May 2, 2011, May 5, 2011, and May 9, 2011. In a progress report dated May 12, 2011 by Sharon Gaebler, OTR, CHT, the claimant reported that he was limited to 'five minutes of activity before hands give out.\" The treatment plan at that time was to discharge to an independent home exercise program. In a review of prescriptions, the claimant received the following prescriptions between August 5, 2010 and March 3, 2012: Celebrex, 200 mg, Gabapentin, 300 mg; Tramadol HCL 50 mg; Dendracin Neurodendraxcin, 0.0375-10-20%; Hydrocodone-Acetaminophen 10-325 mg, ciprofloxacin and Amox TR potassium Clavulana. \"\r\n", "rationale"=>"\"Cost Savings Analysis (Based on a remaining life expectancy of 25.0 years per the National Vital Statistics Reports, Vol. 59, No. 9, September 28, 2011) Theramine 450mg #90 invoice priced at $302.73 for a 30 day supply translates to $302.73 monthly, $3,684.75 annually and $92,143.44 for the claimant's remaining life expectancy of 25 years. Gabapentin 300mg #60 invoice priced at $14.60 for a 30 day supply translates to $14.60 monthly, $177.76 annually and $4443.88 for the claimant's remaining life expectancy of 25 years. Tramadol 50mg #60; $12.65 for a 30 day supply translates to $12.65 monthly, $154.01 annually and $3850.34 for the claimant's remaining life expectancy of 25 years. Dendracin Neurodendraxcin (Capsaicin/Menthol/Methyl Salicylate) cream 4oz/120ml monthly $328.47 or a 30 day supply translates to $328.47 monthly, $3,999.12 annually and $99,978.05 for the claimant's remaining life expectancy of 25 years. Total Cost Savings for combined recommendation: Monthly = $658.45 ($302.73 + $14.60 + 12.65 + $328.47 = $658.45) Annually = $8016.63 ($3865.74 + $177.76 + $154.01 +$3999.12 = $8096.63) Remaining Life Expectancy = $200,415.72 ($92,143.44 + $4443.88 + $3850.34 + $99,978.06 = $200,415.72)\"\r\n", "cited_guidelines"=>"\"1) Chronic Pain Medical Treatment Guidelines MTUS (effective July 18, 2008), 8 C.C.R. 9792.20-9792.26 2) Medical Board of California, Guidelines for Prescribing Controlled Substances for Pain, http://www.medbd.ca.gov/pain_guidelines.html 3) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Pain (chronic) Chapter 4) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Low Back-Lumbar & Thoracic (Acute & Chronic) Chapter 5) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Forearm, Wrist, & Hand (Acute & Chronic) Chapter 6) The American Geriatrics Society 2012 Beers Criteria Update Expert Panel. AGS updated Beers Criteria for potentially inappropriate medication use in older adults. J Am Geriatr Soc 2012; DOI: 10.1111/j.1532-5415.2012.03923.x. 7) U.S. Department of Health and Human Services, National Center for Health Statistics, National Vital Statistics Reports, Vol. 59, No. 9, September 28, 2011 Life Expectancy Tables Evidence Based Medical Guidelines Referenced: 1) Littrell RA, Sage T, Miller W. Meprobamate dependence secondary to carisoprodol use. Am J Drug Alcohol Abuse. 1993;19(1):133-134 2) Federal Register 77,330/ Vol. 76, No. 238/ Dec. 12, 2011 3) Institute for Clinical Systems Improvement (ICSI). Assessment and management of chronic pain. Bloomington (MN): Institute for Clinical Systems Improvement (ICSI); 2009 Nov. 91 p. 4) Agency Medical Directors' Group. Interagency Guideline on Opioid Dosing for Chronic Non-cancer Pain. Washington State Agency Medical Directors' Group: 2010. Available online at http://www.agencymeddirectors.wa.gov/Files/OpioidGdline.pdf 5) Chou R, Fanciullo GJ, Fine PG, et al; American Pain Society-American Academy of Pain Medicine Opioids Guidelines Panel. Clinical guidelines for the use of chronic opioid therapy in chronic noncancer pain.J Pain. 2009 Feb;10(2):113-130. 6) Dunn KM, Saunders KW, Rutter CM, et al. Opioid prescriptions for chronic pain and overdose: a cohort study. Ann Intern Med. 2010 Jan 19;152(2):85-92. 7) Heltsley R, Zichterman A, Black DL, et al. Urine drug testing of chronic pain patients. II. Prevalence patterns of prescription opiates and metabolites. J Anal Toxicol. 2010 Jan-Feb;34(1):32-38. Manchikanti L, Manchukonda R, Damron KS, Brandon D, McManus CD, Cash K. Does adherence monitoring reduce controlled substance abuse in chronic pain patients? Pain Physician. 2006 Jan;9(1):57-60. 8) Arnold RM, Han PK, Seltzer D. Opioid contracts in chronic nonmalignant pain management: Objectives and uncertainties. Am J Med. 2006;119:292-296\"\r\n", "reviewer_display_name"=>"Anthony Riso, M.D", "reviewer_specialty_name"=>"Anesthesiology", "reviewer_license_description"=>"Medical Doctor"}, "commit"=>"Create .doc File"}
+Completed 500 Internal Server Error in 0ms
+
+SystemExit (exit):
+  app/controllers/inputs_controller.rb:12:in `exit'
+  app/controllers/inputs_controller.rb:12:in `create'
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.6ms)
+
+
+Started POST "/inputs/create" for 127.0.0.1 at 2012-05-28 14:35:50 +0000
+  Processing by InputsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZWsPIp8gjqRXLVqCgcZs1iaMrD1UZ95FMmnUwZcKdz4=", "input"=>{"display_claimant_name"=>"Rene Ortegon", "jurisdictional_state"=>"CA", "claim_number"=>"SCA900070054", "talked_to"=>"Ardavan Aslie", "call_datetime"=>"05/05/12 00:00:00", "call_notes"=>"\"A peer to peer teleconference was attempted with Dr. Aslie on 05/07/2012 at 4:20 pm ET.Spoke with Missy - Dr Aslie is available Wednesday's and Friday's to speak\"\r\n", "diagnosis"=>"N/A", "document_date_mdy"=>"05/17/12", "name"=>"CALIFORNIA DEPART. OF INDUSTRIAL RE", "suffix"=>"", "ref_doc_description"=>"Pharmacy Fee Schedule", "add_que_description"=>"\"1. Please call Physician to discuss each medication: usage, dosage, generic versus brand name, weaning if appropriate, whether his change in medication is necessary or not, with cost savings analysis for each medication with a total analysis. \"\r\n", "response"=>"", "opinion"=>"After numerous attempts to speak with the prescribing physic", "recommendation_name"=>"Mr. Ran Durand", "clinical_summary"=>"\"The claimant is a 57-year-old male who was reportedly injured at his job on August 2, 2010 where he was employed as a saw filer/sharpener for approximately thirty years. According to the claimant the injury was of a \"repetitive motion\" nature affecting the bilateral upper extremities and his back. On December 5, 2011, the claimant received an anterior/posterior lumbar fusion. According to the operative report there were no complications with procedure. On June 13, 2011, Carl H. Shin, MD, examined the claimant. The claimant was re-evaluated for carpal tunnel syndrome bilaterally. At the time, the claimant's chief complaint was pain and numbness in the first three digits of both hands, sleep disturbance and pain ranging from six to eight on a visual analog scale (VAS) of zero to ten, with zero reflecting no pain and ten reflecting the most intense pain. The claimant was not working at the time of the examination and a complete review of systems and physical examination were conducted. The treatment plan included a repeat electromyogram study to determine nerve damage, a referral to a hand specialist, continuation of gabapentin with increasing dosage to 600 mg twice daily and reevaluation in four weeks. In a consultation report dated September 7, 2011, the claimant was evaluated for low back and bilateral leg pain, as well as, neck pain. According to the claimant he was not working and the claimant stated he was not currently taking any medication but objective findings noted some significant weakness in the right foot, both plantarflexors and dorsiflexors. The claimant was able to bend to thirty degrees and extend without any extension job. The treatment plan included: obtaining an MRI of lumbar spine, pharmacotherapy to include pain medication, anti-inflammatory medication and muscle relaxants as well as a topical pain cream for numbness and neuropathic pain. In a progress report dated October 5, 2011, the claimant was diagnosed with a lumbar herniated disc. The lower extremity exam was unchanged from last visit. The claimant complained of pain with any activity and he stated that only rest improved the pain. Findings from the MRI showed anterior listhesis of L4 over L5, spinal stenosis of L2-L3 and foraminal stenosis in level of L2 and L3 bilaterally. The treatment plan includes an epidural injection of the lumbar spine, a nerve conduction study of the lower extremities and continuation of medications. The claimant was also counseled regarding spine care and activities. Ardavan Aslie, MD conducted a follow up exam on November 2, 2011. The patient was seen for a follow-up examination. The claimant stated that the nerve conduction study \"bothered\" him and that he was pain. The claimant reported that pain started in the back and radiated down his legs, bilaterally. The lower extremity examination remained unchanged from the last visit. A Waddell sign was absent. The claimant's pathology showed severe spinal stenosis at the levels of L2-L3 and L3-L4. The treatment plan was to proceed with an epidural injection, however, the claimant did not want to proceed as he was in too much pain and did not believe that the injections helped. L2-L3 and L3-L4 anterior/posterior decompression and fusion surgery was offered and explained and the claimant stated he wanted to proceed with surgery. Evaluation and counseling of medication use was also conducted at this time. On December 5, 2011, the claimant received an anterior L2-3 fusion and a posterior L2-3 fusion on the following day. On March 14, 2012, Ardavan Aslie, MD examined the claimant where the chief complain was residual pain in the lumbar spine. The claimant stated that he believed surgery helped him. The lower extremity examination findings were unchanged. Sensation was decreased at the level of L5 bilaterally and a Waddell sign was absent. The claimant had not healed from surgery at the time and was instructed to be careful with his back. Physician noted significant instability at L4-L5 area that was discovered during surgery and the claimant was counseled regarding activities and medication use. Ardavan Aslie, MD examined the Claimant on April 11, 2012 and the claimant reported that he increased the distance that he could walk but was still experiencing low back and bilateral leg pain. Objective findings concluded that the incisions were healing with no signs of infection, A Waddell sign was absent and plantarflexors and dorsiflexors were slightly stronger since pre-op. The physician reported that the claimant had actually a two-level severe spinal stenosis and that he should continue with current management. An evaluation and counseling of medications and currently activities were conducted. The claimant received physical therapy on March 23, 2011, April 14, 2011, April 21, 2011, April 25, 2011, April 28, 2011, May 2, 2011, May 5, 2011, and May 9, 2011. In a progress report dated May 12, 2011 by Sharon Gaebler, OTR, CHT, the claimant reported that he was limited to 'five minutes of activity before hands give out.\" The treatment plan at that time was to discharge to an independent home exercise program. In a review of prescriptions, the claimant received the following prescriptions between August 5, 2010 and March 3, 2012: Celebrex, 200 mg, Gabapentin, 300 mg; Tramadol HCL 50 mg; Dendracin Neurodendraxcin, 0.0375-10-20%; Hydrocodone-Acetaminophen 10-325 mg, ciprofloxacin and Amox TR potassium Clavulana. \"\r\n", "rationale"=>"\"Cost Savings Analysis (Based on a remaining life expectancy of 25.0 years per the National Vital Statistics Reports, Vol. 59, No. 9, September 28, 2011) Theramine 450mg #90 invoice priced at $302.73 for a 30 day supply translates to $302.73 monthly, $3,684.75 annually and $92,143.44 for the claimant's remaining life expectancy of 25 years. Gabapentin 300mg #60 invoice priced at $14.60 for a 30 day supply translates to $14.60 monthly, $177.76 annually and $4443.88 for the claimant's remaining life expectancy of 25 years. Tramadol 50mg #60; $12.65 for a 30 day supply translates to $12.65 monthly, $154.01 annually and $3850.34 for the claimant's remaining life expectancy of 25 years. Dendracin Neurodendraxcin (Capsaicin/Menthol/Methyl Salicylate) cream 4oz/120ml monthly $328.47 or a 30 day supply translates to $328.47 monthly, $3,999.12 annually and $99,978.05 for the claimant's remaining life expectancy of 25 years. Total Cost Savings for combined recommendation: Monthly = $658.45 ($302.73 + $14.60 + 12.65 + $328.47 = $658.45) Annually = $8016.63 ($3865.74 + $177.76 + $154.01 +$3999.12 = $8096.63) Remaining Life Expectancy = $200,415.72 ($92,143.44 + $4443.88 + $3850.34 + $99,978.06 = $200,415.72)\"\r\n", "cited_guidelines"=>"\"1) Chronic Pain Medical Treatment Guidelines MTUS (effective July 18, 2008), 8 C.C.R. 9792.20-9792.26 2) Medical Board of California, Guidelines for Prescribing Controlled Substances for Pain, http://www.medbd.ca.gov/pain_guidelines.html 3) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Pain (chronic) Chapter 4) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Low Back-Lumbar & Thoracic (Acute & Chronic) Chapter 5) Official Disability Guidelines; Work Loss Data Institute, LLC; Corpus Christi , TX; www.odg-twc.com; Forearm, Wrist, & Hand (Acute & Chronic) Chapter 6) The American Geriatrics Society 2012 Beers Criteria Update Expert Panel. AGS updated Beers Criteria for potentially inappropriate medication use in older adults. J Am Geriatr Soc 2012; DOI: 10.1111/j.1532-5415.2012.03923.x. 7) U.S. Department of Health and Human Services, National Center for Health Statistics, National Vital Statistics Reports, Vol. 59, No. 9, September 28, 2011 Life Expectancy Tables Evidence Based Medical Guidelines Referenced: 1) Littrell RA, Sage T, Miller W. Meprobamate dependence secondary to carisoprodol use. Am J Drug Alcohol Abuse. 1993;19(1):133-134 2) Federal Register 77,330/ Vol. 76, No. 238/ Dec. 12, 2011 3) Institute for Clinical Systems Improvement (ICSI). Assessment and management of chronic pain. Bloomington (MN): Institute for Clinical Systems Improvement (ICSI); 2009 Nov. 91 p. 4) Agency Medical Directors' Group. Interagency Guideline on Opioid Dosing for Chronic Non-cancer Pain. Washington State Agency Medical Directors' Group: 2010. Available online at http://www.agencymeddirectors.wa.gov/Files/OpioidGdline.pdf 5) Chou R, Fanciullo GJ, Fine PG, et al; American Pain Society-American Academy of Pain Medicine Opioids Guidelines Panel. Clinical guidelines for the use of chronic opioid therapy in chronic noncancer pain.J Pain. 2009 Feb;10(2):113-130. 6) Dunn KM, Saunders KW, Rutter CM, et al. Opioid prescriptions for chronic pain and overdose: a cohort study. Ann Intern Med. 2010 Jan 19;152(2):85-92. 7) Heltsley R, Zichterman A, Black DL, et al. Urine drug testing of chronic pain patients. II. Prevalence patterns of prescription opiates and metabolites. J Anal Toxicol. 2010 Jan-Feb;34(1):32-38. Manchikanti L, Manchukonda R, Damron KS, Brandon D, McManus CD, Cash K. Does adherence monitoring reduce controlled substance abuse in chronic pain patients? Pain Physician. 2006 Jan;9(1):57-60. 8) Arnold RM, Han PK, Seltzer D. Opioid contracts in chronic nonmalignant pain management: Objectives and uncertainties. Am J Med. 2006;119:292-296\"\r\n", "reviewer_display_name"=>"Anthony Riso, M.D", "reviewer_specialty_name"=>"Anesthesiology", "reviewer_license_description"=>"Medical Doctor"}, "commit"=>"Create .doc File"}
+Redirected to http://localhost:3000/inputs/new
+Completed 302 Found in 2981ms
+
+
+Started GET "/inputs/new" for 127.0.0.1 at 2012-05-28 14:35:53 +0000
+  Processing by InputsController#new as HTML
+Rendered inputs/new.html.haml within layouts/application (34.2ms)
+Completed 200 OK in 136ms (Views: 135.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-28 14:35:53 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/inputs.css?body=1" for 127.0.0.1 at 2012-05-28 14:35:53 +0000
+Served asset /inputs.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-28 14:35:53 +0000
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-28 14:35:53 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/inputs.js?body=1" for 127.0.0.1 at 2012-05-28 14:35:53 +0000
+Served asset /inputs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-28 14:35:53 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-28 14:35:53 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-28 14:35:53 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/inputs.js?body=1" for 127.0.0.1 at 2012-05-28 14:35:53 +0000
+Served asset /inputs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-28 14:35:53 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/inputs.css?body=1" for 127.0.0.1 at 2012-05-28 14:35:53 +0000
+Served asset /inputs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-28 14:35:53 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/inputs/create" for 127.0.0.1 at 2012-05-28 15:49:16 +0000
+
+LoadError (no such file to load -- httparty):
+  app/controllers/inputs_controller.rb:7:in `<class:InputsController>'
+  app/controllers/inputs_controller.rb:1:in `<top (required)>'
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.8ms)
+
+
+Started POST "/inputs/create" for 127.0.0.1 at 2012-05-28 15:54:39 +0000
+
+LoadError (no such file to load -- httparty):
+  app/controllers/inputs_controller.rb:7:in `<class:InputsController>'
+  app/controllers/inputs_controller.rb:1:in `<top (required)>'
+
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /home/drajgor/.rvm/gems/ruby-1.9.2-p318/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.8ms)

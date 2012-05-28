@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  display_claimant_name: MyString
+  jurisdictional_state: MyString
+  claim_number: MyString
+  talked_to: MyString
+  call_datetime: 2012-05-28 10:50:21
+  call_notes: MyText
+  diagnosis: MyString
+  document_date_mdy: 2012-05-28
+  name: MyString
+  suffix: MyString
+  ref_doc_description: MyText
+  add_que_description: MyText
+  response: MyText
+  opinion: MyText
+  clinical_summary: MyText
+  rationale: MyText
+  cited_guidelines: MyText
+  reviewer_display_name: MyString
+  reviewer_specialty_name: MyString
+  reviewer_license_description: MyString
+
+two:
+  display_claimant_name: MyString
+  jurisdictional_state: MyString
+  claim_number: MyString
+  talked_to: MyString
+  call_datetime: 2012-05-28 10:50:21
+  call_notes: MyText
+  diagnosis: MyString
+  document_date_mdy: 2012-05-28
+  name: MyString
+  suffix: MyString
+  ref_doc_description: MyText
+  add_que_description: MyText
+  response: MyText
+  opinion: MyText
+  clinical_summary: MyText
+  rationale: MyText
+  cited_guidelines: MyText
+  reviewer_display_name: MyString
+  reviewer_specialty_name: MyString
+  reviewer_license_description: MyString

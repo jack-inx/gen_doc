@@ -1,0 +1,90 @@
+%h2
+  = "Add the Data to Create The .doc File"
+
+= form_for @input, :url => inputs_create_path(@input) do |f|
+  %p
+    = f.label :display_claimant_name
+    = f.text_field :display_claimant_name
+
+  %p
+    = f.label :jurisdictional_state
+    = f.text_field :jurisdictional_state
+
+  %p
+    = f.label :claim_number
+    = f.text_field :claim_number
+
+  %p
+    = f.label :talked_to
+    = f.text_field :talked_to
+
+  %p
+    = f.label :call_datetime
+    = f.text_field :call_datetime
+
+  %p
+    = f.label :call_notes
+    = f.text_area :call_notes, :rows => '3', :cols => '40'
+
+  %p
+    = f.label :diagnosis
+    = f.text_field :diagnosis
+
+  %p
+    = f.label :document_date_mdy
+    = f.text_field :document_date_mdy
+
+  %p
+    = f.label :name
+    = f.text_field :name
+
+  %p
+    = f.label :suffix
+    = f.text_field :suffix
+
+  %p
+    = f.label :ref_doc_description
+    = f.text_area :ref_doc_description, :rows => '3', :cols => '40'
+
+  %p
+    = f.label :add_que_description
+    = f.text_area :add_que_description, :rows => '3', :cols => '40'
+
+  %p
+    = f.label :response
+    = f.text_area :response, :rows => '3', :cols => '40'
+
+  %p
+    = f.label :opinion
+    = f.text_area :opinion, :rows => '3', :cols => '40'
+
+  %p
+    = f.label :recommendation_name
+    = f.text_field :recommendation_name
+
+  %p
+    = f.label :clinical_summary
+    = f.text_area :clinical_summary, :rows => '3', :cols => '40'
+
+  %p
+    = f.label :rationale
+    = f.text_area :rationale, :rows => '3', :cols => '40'
+
+  %p
+    = f.label :cited_guidelines
+    = f.text_area :cited_guidelines, :rows => '3', :cols => '40'
+
+  %p
+    = f.label :reviewer_display_name
+    = f.text_field :reviewer_display_name
+
+  %p
+    = f.label :reviewer_specialty_name
+    = f.text_field :reviewer_specialty_name
+
+  %p
+    = f.label :reviewer_license_description
+    = f.text_field :reviewer_license_description
+
+  %p
+    = f.submit "Create .doc File"
